@@ -1,8 +1,28 @@
 {
   "version": 2,
-  "dgSpecHash": "/EhcPA0g2LDRwRZOC0IZD+zq3/waHS88CYfbddJoz4y3ZIL7afOCtLPtWHz4bWzq9uJD3IM9sFJX7mkmmRxhUw==",
+  "dgSpecHash": "ECqF78QcFJbNBniTP8QGR5ky7fk8Nno/CCAEpCj752rluVpVnwRQFWGfdQ9ofK1purCngpumEOTZMowgv2MjNQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\aalop\\Strava2.0\\Strava2.0.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.aspnetcore.nodeservices\\3.1.9\\microsoft.aspnetcore.nodeservices.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.aspnetcore.spaservices\\3.1.9\\microsoft.aspnetcore.spaservices.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\3.1.9\\microsoft.aspnetcore.spaservices.extensions.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.9\\microsoft.extensions.configuration.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.9\\microsoft.extensions.configuration.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.9\\microsoft.extensions.configuration.binder.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.9\\microsoft.extensions.dependencyinjection.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.9\\microsoft.extensions.dependencyinjection.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.9\\microsoft.extensions.fileproviders.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.9\\microsoft.extensions.fileproviders.physical.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.9\\microsoft.extensions.filesystemglobbing.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.logging\\3.1.9\\microsoft.extensions.logging.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.9\\microsoft.extensions.logging.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.logging.configuration\\3.1.9\\microsoft.extensions.logging.configuration.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.logging.console\\3.1.9\\microsoft.extensions.logging.console.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.options\\3.1.9\\microsoft.extensions.options.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\3.1.9\\microsoft.extensions.options.configurationextensions.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.9\\microsoft.extensions.primitives.3.1.9.nupkg.sha512",
+    "C:\\Users\\aalop\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

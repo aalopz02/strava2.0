@@ -1,13 +1,13 @@
 export class Carrera {
 
-    NombreCarrera: string;
-    Patrocinadores: Array<string>;
-    Ruta: string;
-    Costo: number;
-    Categorias: Array<number>;
-    Fecha: string;
-    CuentaPago: number;
-    Tipo : string;
+    nombreCarrera: string;
+    //Patrocinadores: Array<string>;
+    //Ruta: string;
+    costo: number;
+    //Categorias: Array<number>;
+    //fecha: string;
+    cuentaBanco: number;
+    //Tipo : string;
 
 
     public constructor(init?: Partial<Carrera>) {

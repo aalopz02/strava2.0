@@ -1,0 +1,32 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<h1>Cree la carrera</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nombreCarrera">Nombre Carrera</label>
+        <input type="text" formControlName="nombreCarrera" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreCarrera.errors }"  />
+        <div *ngIf="submitted && f.nombreCarrera.errors" class="invalid-feedback">
+            <div *ngIf="f.nombreCarrera.errors.required">Se necesita nombre de la carrera</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="costo">Costo por participar</label>
+        <input type="text" formControlName="costo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.costo.errors }" />
+        <div *ngIf="submitted && f.costo.errors" class="invalid-feedback">
+            <div *ngIf="f.costo.errors.required">El costo es requerido</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cuentaBanco">Cuenta para pagos</label>
+        <input type="text" formControlName="cuentaBanco" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cuentaBanco.errors }" />
+        <div *ngIf="submitted && f.cuentaBanco.errors" class="invalid-feedback">
+            <div *ngIf="f.cuentaBanco.errors.required">La cuenta es requerida</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Crear Evento</button>
+    </div>
+    
+</form>
+
+

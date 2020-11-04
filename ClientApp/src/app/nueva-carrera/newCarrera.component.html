@@ -3,10 +3,10 @@
 
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="nombreCarrera">Nombre Carrera</label>
-        <input type="text" formControlName="nombreCarrera" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreCarrera.errors }"  />
-        <div *ngIf="submitted && f.nombreCarrera.errors" class="invalid-feedback">
-            <div *ngIf="f.nombreCarrera.errors.required">Se necesita nombre de la carrera</div>
+        <label for="nombrecarrera">Nombre Carrera</label>
+        <input type="text" formControlName="nombrecarrera" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombrecarrera.errors }"  />
+        <div *ngIf="submitted && f.nombrecarrera.errors" class="invalid-feedback">
+            <div *ngIf="f.nombrecarrera.errors.required">Se necesita nombre de la carrera</div>
         </div>
     </div>
     <div class="form-group">
@@ -17,12 +17,29 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="cuentaBanco">Cuenta para pagos</label>
-        <input type="text" formControlName="cuentaBanco" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cuentaBanco.errors }" />
-        <div *ngIf="submitted && f.cuentaBanco.errors" class="invalid-feedback">
-            <div *ngIf="f.cuentaBanco.errors.required">La cuenta es requerida</div>
+        <label for="cuentapago">Cuenta para pagos</label>
+        <input type="text" formControlName="cuentapago" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cuentapago.errors }" />
+        <div *ngIf="submitted && f.cuentapago.errors" class="invalid-feedback">
+            <div *ngIf="f.cuentapago.errors.required">La cuenta es requerida</div>
         </div>
     </div>
+    <div class="form-group">
+        <label for="privacidad">Privacidad</label>
+        <input type="text" formControlName="privacidad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.privacidad.errors }" />
+        <div *ngIf="submitted && f.privacidad.errors" class="invalid-feedback">
+            <div *ngIf="f.privacidad.errors.required">La privacidad es requerida</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="fecha">Fecha del evento</label>
+        <input type="date" class="form-control" formControlName="fecha" id="fecha" required>
+    </div>
+    <div>
+        <span>Archivo gpx de la ruta: </span>
+        <span>{{file ? file.name : 'Arrastre el archivo' }}</span>
+        <input class="file-input" formControlName="ruta" type="file">
+    </div>
+    
     <div class="form-group">
         <button class="btn btn-primary">Crear Evento</button>
     </div>

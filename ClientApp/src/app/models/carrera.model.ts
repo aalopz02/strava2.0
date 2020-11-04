@@ -1,16 +1,15 @@
-export class Carrera {
+export class carrera {
 
-    nombreCarrera: string;
-    //Patrocinadores: Array<string>;
-    //Ruta: string;
+    nombrecarrera: string;
+    ruta: ArrayBuffer;
     costo: number;
-    //Categorias: Array<number>;
-    //fecha: string;
-    cuentaBanco: number;
-    //Tipo : string;
-
-
-    public constructor(init?: Partial<Carrera>) {
+    fecha: string;
+    cuentapago: number;
+    tipo : string;
+    tipoactividad : number;
+    privacidad : string;
+    
+    public constructor(init?: Partial<carrera>) {
         Object.assign(this, init);
     }
 

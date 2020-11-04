@@ -1,0 +1,22 @@
+body, html {
+    margin: 0;
+    background-image: url('https://hdwallsource.com/img/2014/8/amazing-running-wallpaper-35504-36314-hd-wallpapers.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    
+  }
+
+  .container{
+    height: 100vh;
+    align-content: center;
+    }
+
+    .texto {
+        color: #96c2ee;
+    }
+
+    .titulo {
+        color: #ff0000;
+    }

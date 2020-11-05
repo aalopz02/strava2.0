@@ -8,7 +8,8 @@ export class carrera {
     tipo : string;
     tipoactividad : number;
     privacidad : string;
-    
+    patrocinadorId : number;
+    categoriaId : number;
     public constructor(init?: Partial<carrera>) {
         Object.assign(this, init);
     }

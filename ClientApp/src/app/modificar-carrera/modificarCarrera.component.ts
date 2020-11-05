@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { actividad } from '../models/actividad.model';
 import { patrocinadorService } from '../services/patrocinadores.service';
 import { categoriaService } from '../services/categoria.service';
+import { categoria } from '../models/categoria.model';
 
 @NgModule({
   imports: [
@@ -18,10 +19,11 @@ import { categoriaService } from '../services/categoria.service';
 })
 
 @Component({
-  selector: 'app-nueva-carrera-component',
-  templateUrl: './newCarrera.component.html'
+  selector: 'app-modificar-carrera-component',
+  templateUrl: './modificarCarrera.component.html'
 })
-export class CarreraComponent implements OnInit {
+
+export class modificarCarreraComponent implements OnInit {
   registerForm: FormGroup;
   error: string;
   tipoactividad  = [];
@@ -32,7 +34,8 @@ export class CarreraComponent implements OnInit {
   constructor( private formBuilder: FormBuilder,private service: newCarreraService,
     private serviceTipoAct: tipoActividadService,
     private servicePat : patrocinadorService,
-    private serviceCat : categoriaService){}
+    private serviceCat : categoriaService
+    ){}
 
   ngOnInit() {
 
@@ -70,10 +73,9 @@ export class CarreraComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    this.service.crearCarrera(this.registerForm.value)
+    this.service.modificarCarrera(this.registerForm.value)
     .subscribe(
-      data => {
-          
+      data => {  
       },
       error => {
           this.error = error;

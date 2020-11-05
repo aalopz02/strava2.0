@@ -13,7 +13,6 @@
       <h1 class="display-5" align="center">Crear un Reto</h1>
       
       <form [formGroup]="retoForm" (submit)="onSubmit(retoForm.value)" >
-        
             <div class="col-md-6 mb-3 mx-auto"  >
               <label class="labelfont" for="name">Nombre del Reto:</label>
               <input type="text" class="form-control"  formControlName="name" id="name" #name required>

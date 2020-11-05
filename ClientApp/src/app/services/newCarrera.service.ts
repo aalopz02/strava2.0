@@ -14,8 +14,27 @@ export class newCarreraService {
   getAll() {
     return this.http.get<any[]>(`https://localhost:44379/api/Carreras?`);
   }
-//,patrocinadores: string,categorias:string
+
   crearCarrera(carrera : carrera) {
+    const Base_url = 'https://localhost:44379/api/Cliente?';
+    console.log(categoria); 
+    console.log(patrocinador); 
+    const params = new HttpParams()
+      .set('nombreCarrera', carrera.nombrecarrera)
+      .set('Costo', carrera.costo.toString())
+      .set('Cuenta', carrera.cuentapago.toString())
+      .set('Fecha', carrera.fecha)
+      .set('privacidad', carrera.privacidad)
+      .set('idtipo', carrera.tipoactividad.toString())
+      .set('ruta', 'safsdfsdfedf')
+      .set('patrocinadores', carrera.patrocinadorId.toString())
+      .set('categorias', carrera.categoriaId.toString())
+
+    console.log(carrera); 
+    return this.http.post(`https://localhost:44379/api/Carreras?` + params, carrera);
+  }
+
+  modificarCarrera(carrera : carrera) {
     const Base_url = 'https://localhost:44379/api/Cliente?';
 
     const params = new HttpParams()
@@ -25,12 +44,12 @@ export class newCarreraService {
       .set('Fecha', carrera.fecha)
       .set('privacidad', carrera.privacidad)
       .set('idtipo', carrera.tipoactividad.toString())
-      .set('ruta', "0")
-      .set('patrocinadores', "1")
-      .set('categorias', "1.2.3")
+      .set('ruta', 'safsdfsdfedf')
+      .set('patrocinadores', carrera.patrocinadorId.toString())
+      .set('categorias', carrera.categoriaId.toString())
 
     console.log(carrera); 
-    return this.http.post(`https://localhost:44379/api/Carreras?` + params, carrera);
+    return this.http.put(`https://localhost:44379/api/Carreras?` + params, carrera);
   }
 
   delete(nombrecarrera) {

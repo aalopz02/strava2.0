@@ -1,0 +1,62 @@
+.maincontent {
+    --background: none;
+    background-image: url('https://hdwallsource.com/img/2014/8/amazing-running-wallpaper-35504-36314-hd-wallpapers.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.header{
+
+    margin-top: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    
+    
+}
+.header .title{
+    width: 200px;
+    margin-left: 20%;
+}
+
+.title-login {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-bottom: 10px;
+
+}
+.login-form{
+    --background: rgba(0, 0, 0, 0);
+    --highlight-color-focused: darkorange;
+}
+
+.logincontent .placeholder {
+    color: darkorange;
+    font-weight: bolder;
+}
+
+.login-btn{
+    position: relative;
+    margin-left: 60%;
+    color: black;
+    margin-top: 20px;
+    --background: orange;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+
+
+
+.maincontent .logincontent {
+    position: absolute;
+    max-width: 90%;
+    right: 5%;
+    height: 34vh;
+    --background: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,20 @@
+<ion-content class="maincontent">
+  <ion-header class="ion-text-center header">
+    <ion-img class="title" src = "assets/logo.png"></ion-img>
+  </ion-header>
+  
+  <ion-content class="logincontent">
+    <form>
+      <ion-title class="title-login">Ingrese su cuenta</ion-title>
+      <ion-item class="login-form">
+        <ion-input class="placeholder" type="text" #nombreusuario placeholder="Usuario"></ion-input>
+      </ion-item>
+      <ion-item class="login-form">
+        <ion-input class="placeholder" type="password" #password placeholder="Contraseña"></ion-input>
+      </ion-item>
+      <ion-button size="small" (click)="checkLogin(nombreusuario.value, password.value)" type="button" class="login-btn">Entrar</ion-button>
+    </form>
+  </ion-content>  
+
+</ion-content>
+

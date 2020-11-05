@@ -1,0 +1,26 @@
+
+  .container {
+    background-color: whitesmoke;
+  }
+  
+  .page-holder {
+    height: 110vh;
+   
+  }
+  .bg-cover {
+    background-size: cover !important;
+  }
+  
+  
+  .navbar a {
+ 
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    
+  }
+  .active {
+    background-color: #caffae;
+    
+  }

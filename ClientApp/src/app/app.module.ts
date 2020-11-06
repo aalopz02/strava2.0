@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserHomeComponent } from './user-home/user.home.component';
+import { UserSearch } from './search-users/user.search.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UserHomeComponent } from './user-home/user.home.component';
     modificarCarreraComponent,
     LoginComponent,
     RegisterComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserSearch
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -53,7 +55,8 @@ import { UserHomeComponent } from './user-home/user.home.component';
       { path: 'retos-list', component: RetosListComponent },
       { path: 'user-home', component: UserHomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'search-users', component: UserSearch }
     ])
   ],
   providers: [],

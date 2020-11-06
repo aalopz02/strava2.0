@@ -45,7 +45,7 @@
     <div>
         <label for="patrocinadores">Patrocinadores </label>
             <select formControlName="patrocinadores" id="patrocinadores">
-                <option *ngFor="let patrocinador of patrocinadores; let i = index" [value]="tipoactividad[i].idpat">
+                <option *ngFor="let patrocinador of patrocinadores; let i = index" [value]="patrocinadores[i].idpat">
                     {{patrocinadores[i].nombre}}
                 </option>
              </select>

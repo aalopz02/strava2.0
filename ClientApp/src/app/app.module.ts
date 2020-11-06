@@ -15,6 +15,9 @@ import { RetosCreateComponent } from './retos-create/retos-create.component';
 import { RetosListComponent } from './retos-list/retos-list.component';
 import { RetosModifyComponent } from './retos-modify/retos-modify.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { UserHomeComponent } from './user-home/user.home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RetosModifyComponent,
     RetosListComponent,
     RetosCreateComponent,
-    modificarCarreraComponent
+    modificarCarreraComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,7 +50,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       { path: 'retos', component: RetosMainComponent },
       { path: 'modificar-retos', component: RetosModifyComponent },
       { path: 'retos-nuevo', component: RetosCreateComponent },
-      { path: 'retos-list', component: RetosListComponent }
+      { path: 'retos-list', component: RetosListComponent },
+      { path: 'user-home', component: UserHomeComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent }
     ])
   ],
   providers: [],

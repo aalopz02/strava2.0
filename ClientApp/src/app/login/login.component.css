@@ -1,0 +1,79 @@
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('https://hdwallsource.com/img/2014/8/amazing-running-wallpaper-35504-36314-hd-wallpapers.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100vh;
+align-content: center;
+}
+
+.card{
+height: 450px;
+margin-top: auto;
+margin-bottom: auto;
+width: 480px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.pageTitle {
+
+    cursor: default;
+    position: absolute;
+    font-size: 80px;
+    color: black;
+    right: 20px;
+    top: -45px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font: bold;
+}
+
+
+.card-header h3{
+    color: white;
+}
+
+.input-group-prepend span{
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+}
+
+input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+
+}
+
+
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.registerhref{
+    color: #FFC312;
+}
+.links a{
+margin-left: 4px;
+}

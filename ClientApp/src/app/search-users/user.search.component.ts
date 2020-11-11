@@ -15,12 +15,14 @@ import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-search-user-component',
-  templateUrl: './user.search.component.html'
+  templateUrl: './user.search.component.html',
+  styleUrls: ['./user.search.component.css']
 })
 export class UserSearch implements OnInit {
   registerForm: FormGroup;
   busqueda: string;
   error: string;
+  resultados  = [];
   constructor( private formBuilder: FormBuilder,private service: UserService){}
 
   ngOnInit() {
@@ -28,6 +30,10 @@ export class UserSearch implements OnInit {
     this.registerForm = this.formBuilder.group({
       busqueda: ['all']
 
+  });
+  this.service.getAll(this.registerForm.value).subscribe(data =>{
+    this.resultados=data;
+    console.log(this.resultados[0]);
   });
   }
 
@@ -40,7 +46,8 @@ export class UserSearch implements OnInit {
     this.service.getAll(this.registerForm.value)
     .subscribe(
       data => {
-          
+        this.resultados=data;
+        console.log(this.resultados[0]);
       },
       error => {
           this.error = error;

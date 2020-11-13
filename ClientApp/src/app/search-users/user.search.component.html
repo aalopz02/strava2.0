@@ -37,7 +37,7 @@
                     <div class="desc">Nombre: {{resultados[i].fname}} {{resultados[i].mname}} {{resultados[i].lname}}</div>
                     <div class="desc">Nacionalidad: {{resultados[i].nacionalidad}}</div>   
                 </div>
-                <button class="buttons"> Seguir</button>   
+                <button class="buttons" (click)="seguir($event, usuario)"> Seguir</button>   
             </div>
             
         </section>

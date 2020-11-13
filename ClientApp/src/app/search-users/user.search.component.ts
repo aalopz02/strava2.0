@@ -23,18 +23,21 @@ export class UserSearch implements OnInit {
   busqueda: string;
   error: string;
   resultados  = [];
-  constructor( private formBuilder: FormBuilder,private service: UserService){}
+  user: any = [];
+  constructor( private formBuilder: FormBuilder,private service: UserService){  }
 
   ngOnInit() {
-
     this.registerForm = this.formBuilder.group({
       busqueda: ['all']
-
   });
-  this.service.getAll(this.registerForm.value).subscribe(data =>{
+  this.user = this.service.userLogged;
+  console.log("Usuario:");
+  console.log(this.user);
+  this.service.getAll(this.registerForm.value,this.user).subscribe(data =>{
     this.resultados=data;
     console.log(this.resultados[0]);
   });
+  
   }
 
   get f() { return this.registerForm.controls; }
@@ -43,7 +46,7 @@ export class UserSearch implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    this.service.getAll(this.registerForm.value)
+    this.service.getAll(this.registerForm.value,this.user)
     .subscribe(
       data => {
         this.resultados=data;
@@ -52,5 +55,8 @@ export class UserSearch implements OnInit {
       error => {
           this.error = error;
       });
+  }
+  seguir(event, item){
+    this.service.seguirUsuario(item["nombreusuario"],this.user["nombreusuario"]);
   }
 }

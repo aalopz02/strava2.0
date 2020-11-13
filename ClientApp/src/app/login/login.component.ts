@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   checkuserForm: FormGroup;
   usertoCheck: any = [];
-
+  username:'';
   constructor(private userService: UserService, private formB: FormBuilder, private router: Router) { 
     this.checkuserForm = this.formB.group({
       username: '',
@@ -34,11 +34,9 @@ export class LoginComponent implements OnInit {
         console.log('Usuario no registrado')
 
       }else if (this.usertoCheck.contraseña == userdata.password){
-        
         console.log('Ingresando')
-
         this.userService.setUserLogged(this.usertoCheck);
-        this.router.navigate(['/home', this.usertoCheck.nombreusuario]);
+        this.router.navigate(['/user-home']);
 
       }else{
         console.log('Contraseña incorrecta')

@@ -15,6 +15,10 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'start',
+    loadChildren: () => import('./activity/activity.module').then( m => m.ActivityPageModule)
+  },
 ];
 
 @NgModule({

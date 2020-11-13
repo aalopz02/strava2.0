@@ -28,8 +28,14 @@ export class UsuarioService {
       nombreusuario: nombreusuario,
       contraseña: password
     }
-    
+    console.log(data);
     return this.http.post(this.BaseUrl + route, data)
+
+  }
+
+  getUsuario(){
+
+    return this.http.get<Usuario>(this.BaseUrl + '/' + this.username)
 
   }
 

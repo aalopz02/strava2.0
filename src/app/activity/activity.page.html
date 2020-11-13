@@ -1,0 +1,61 @@
+<ion-header class="bg">
+  <ion-toolbar class="toolbar">
+    <ion-buttons>
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>
+
+<ion-footer class="bg">
+
+  <ion-item-group>
+    <ion-row>
+      <ion-col>
+        <ion-item class="bg-item">
+          <ion-card class="card">
+            <ion-card-header class="card-header">Distance</ion-card-header>
+            <ion-card-content class="card-content"> 0 km </ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item class="bg-item">
+          <ion-card class="card">
+            <ion-card-header class="card-header"> Time </ion-card-header>
+            <ion-card-content class="card-content" [chronometer]="chronometer"></ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-item-group>
+  
+  <ion-buttons>
+    <ion-button *ngIf="!startChr" (click)="run(chronometer, 2)" class="start-btn">
+      Start
+    </ion-button>
+  </ion-buttons>
+  <ion-row>
+    <ion-col>
+      <ion-buttons>
+        <ion-button *ngIf="startChr && !pauseChr" (click)="run(chronometer, 1)" class="pause-btn">
+          Pause
+        </ion-button>
+        <ion-button *ngIf="startChr && pauseChr" (click)="run(chronometer, 2)" class="pause-btn">
+          Restart
+        </ion-button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons>
+        <ion-button *ngIf="startChr" (click)="run(chronometer, 3)" class="finish-btn">
+          Finish
+        </ion-button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+
+</ion-footer>

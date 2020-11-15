@@ -1,20 +1,27 @@
 <ion-header class="bg">
   <ion-toolbar class="toolbar">
     <ion-buttons>
-      <ion-back-button defaultHref=""></ion-back-button>
+      <ion-back-button slot="start" defaultHref=""></ion-back-button>
+      <input slot="end"
+    type="file"
+    name="file"
+    id="file"
+    class="fileInput"
+    (change)="loadGpxFromDevice($event)"/>
+    <label for="file"><ion-icon style="zoom:1.5;" name="arrow-up-circle-outline"></ion-icon>Add GPX</label>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div id="map"></div>
 </ion-content>
 
 <ion-footer class="bg">
 
   <ion-item-group>
     <ion-row>
-      <ion-col>
+      <ion-col size="6">
         <ion-item class="bg-item">
           <ion-card class="card">
             <ion-card-header class="card-header">Distance</ion-card-header>
@@ -22,11 +29,11 @@
           </ion-card>
         </ion-item>
       </ion-col>
-      <ion-col>
+      <ion-col size="6">
         <ion-item class="bg-item">
           <ion-card class="card">
             <ion-card-header class="card-header"> Time </ion-card-header>
-            <ion-card-content class="card-content" [chronometer]="chronometer"></ion-card-content>
+            <ion-card-content [chronometer]="chronometer" class="card-content"> </ion-card-content>
           </ion-card>
         </ion-item>
       </ion-col>

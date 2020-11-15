@@ -1,5 +1,11 @@
 .card {
     border: none;
+    min-height: 280px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    max-width: 350px;
+    min-width: 350px;
 }
 
 .card.hovercard {
@@ -10,7 +16,8 @@
     background-color: rgba(189, 226, 255, 0.5);
     margin: 10px 10px;
     padding: 10px 10px;
-    
+    max-width: 350px;
+    min-width: 350px;
 }
 
 .card.hovercard .cardheader {
@@ -69,4 +76,12 @@
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+}
+
+.buttons {
+    max-width: 120px;
+    min-width: 120px;
+    margin: auto;
+    margin-bottom: 12px;
+    border-radius: 9%;
 }

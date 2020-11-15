@@ -22,26 +22,30 @@
     <div class="form-group">
         <button class="btn btn-primary">Buscar</button>
     </div>
-    <div>
-        <section class="card" *ngFor="let usuario of resultados; let i = index">
-            <div class="card hovercard">
-                <div class="cardheader">
-                </div>
-                <div class="avatar">
-                    <img alt="" src="http://lorempixel.com/output/people-q-g-100-100-7.jpg">
-                    <div class="name">
-                        <a target="_blank" href="https://scripteden.com/">{{resultados[i].nombreusuario}}</a>
+    <div class="container">
+        <div class="row">
+            <section class="card col-4" *ngFor="let usuario of resultados; let i = index">
+                <div class="card hovercard">
+                    <div class="cardheader">
                     </div>
+                    <div class="avatar">
+                        <img alt="" [src]="['https://localhost:8080/' + resultados[i].imagenperfil]">
+                        <div class="name">
+                            <a target="_blank" href="https://scripteden.com/">{{resultados[i].nombreusuario}}</a>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="desc">Nombre: {{resultados[i].fname}} {{resultados[i].mname}} {{resultados[i].lname}}</div>
+                        <div class="desc">Nacionalidad: {{resultados[i].nacionalidad}}</div>   
+                    </div>
+                    <button class="buttons" (click)="seguir($event, usuario)"> Seguir</button>   
                 </div>
-                <div class="info">
-                    <div class="desc">Nombre: {{resultados[i].fname}} {{resultados[i].mname}} {{resultados[i].lname}}</div>
-                    <div class="desc">Nacionalidad: {{resultados[i].nacionalidad}}</div>   
-                </div>
-                <button class="buttons" (click)="seguir($event, usuario)"> Seguir</button>   
-            </div>
-            
-        </section>
+                
+            </section>
+        </div>
+       
     </div>
+        
 
     
 </form>

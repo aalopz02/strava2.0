@@ -7,7 +7,8 @@ export class User {
     nationality: string;
     username: string;
     password: string;
-
+    imagenperfil : string;
+    
     public constructor() {
         
     }

@@ -19,7 +19,7 @@ export class UserService {
   }
 
 
-  POSTUser(user: User){
+  POSTUser(user: User, img : string | ArrayBuffer){
 
     const params = new HttpParams()
     .set('nombreusuario', user.username)
@@ -29,9 +29,8 @@ export class UserService {
     .set('lname', user.lname)
     .set('fechaNacimiento', user.birthday.toString())
     .set('nacionalidad', user.nationality);
-
-
-    this.http.post(this.BaseUrl +'?' + params.toString(), null).subscribe(data => {
+    console.log({'file': img.toString()});
+    this.http.post(this.BaseUrl +'?' + params.toString(),{'file': img.toString()}).subscribe(data => {
       console.log(data);
     })
 

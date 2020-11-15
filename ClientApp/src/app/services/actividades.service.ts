@@ -9,7 +9,8 @@ export class actividadesService {
   constructor(private http: HttpClient) { }
 
   getAll(usuario : string) {
-    return this.http.get<any[]>(`https://localhost:44379/api/Actividad/` + usuario);
+
+    return this.http.get<any[]>(`https://localhost:44379/api/Actividad/` + usuario["nombreusuario"]);
   }
 
 }

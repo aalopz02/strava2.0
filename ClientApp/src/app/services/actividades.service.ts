@@ -15,7 +15,6 @@ export class actividadesService {
     return this.http.get<any[]>(this.url + `/` + usuario["nombreusuario"]);
   }
 
-
   crearActividad(actividad : ActividadUsuario, nombreusuario :string, ruta : string | ArrayBuffer ){
     console.log(actividad);
     const params = new HttpParams()

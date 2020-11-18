@@ -1,17 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OnInit } from '@angular/core';
-import { first, pluck } from 'rxjs/operators';
 import { NgModule } from '@angular/core';
-import { newCarreraService, UserService } from '../services';
+import { UserService } from '../services';
 import { tipoActividadService } from '../services';
-import { carrera } from '../models/carrera.model';
-import { Observable } from 'rxjs';
-import { actividad } from '../models/actividad.model';
-import { patrocinadorService } from '../services/patrocinadores.service';
-import { categoriaService } from '../services/categoria.service';
 import { actividadesService } from '../services/actividades.service';
-import { fromEvent } from 'rxjs';
 
 @NgModule({
   imports: [

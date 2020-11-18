@@ -55,4 +55,28 @@
         </div>
     </div>
 </section>
+<div class="container">
+    <div class="row">
+        <section class="card col-4" *ngFor="let actividadUsuario of actividades; let i = index">
+            <div class="card hovercard">
+                <div class="cardheader">
+                </div>
+                <div class="avatar">
+                    <img alt="" [src]="['https://localhost:8080/imgrepo/' + actividades[i].imagenperfil]">
+                    <div class="name">
+                        <a target="_blank" href="https://scripteden.com/">{{actividades[i].nombreusuario}}</a>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="desc">Tipo Actividad: {{actividades[i].tipoactividad}} </div>
+                    <div class="desc">Distancia: {{actividades[i].distancia}}</div>  
+                </div>
+                  
+            </div>
+            
+        </section>
+    </div>
+   
+</div>
+
 

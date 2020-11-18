@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserHomeComponent } from './user-home/user.home.component';
 import { UserSearch } from './search-users/user.search.component';
 import { ActivityUSer} from './activity/activity.user.component';
+import { UserCarrerasSub } from './user-carreras-subs/user.carreras.subs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { ActivityUSer} from './activity/activity.user.component';
     RegisterComponent,
     UserHomeComponent,
     UserSearch,
-    ActivityUSer
+    ActivityUSer,
+    UserCarrerasSub
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -58,7 +60,8 @@ import { ActivityUSer} from './activity/activity.user.component';
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'search-users', component: UserSearch },
-      { path: 'activity', component: ActivityUSer }
+      { path: 'activity', component: ActivityUSer },
+      { path: 'user-carreras-subs', component: UserCarrerasSub }
     ])
   ],
   providers: [],

@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bde2ff;">
+    <a class="navbar-brand" href="#">StravaTEC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link"  [routerLink]="['../user-home'] ">Home</a>
+            </li>
+            <li class="nav-item">
+                <a   class="nav-link" [routerLink]="['../search-users'] ">Mi perfil</a>
+            </li>
+            <li class="nav-item">
+                <a   class="nav-link" [routerLink]="['../activity'] ">Actividad</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-outline-info my-2 my-sm-0" [routerLink]="['../search-users'] ">Search</button>
+            </li>
+           
+        </ul>
+    </div>
+</nav>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <section class="card col-3" *ngFor="let carrera of carrerasdisponibles; let i = index">
+            <div class="card hovercard">
+               <!--  <div class="avatar">
+                    <img [src]="['https://localhost:8080/imgpat/' + carrerasdisponibles[i].imgpat]" alt="">
+                </div>
+                -->
+                <div class="info">
+                    <div class="desc">Carrera: {{carrerasdisponibles[i].nombrecarrera}}</div>
+                    <div class="desc">Costo: {{carrerasdisponibles[i].costo}}</div>
+                    <div class="desc">Fecha: {{carrerasdisponibles[i].fecha}}</div>
+                    <div class="desc">Cuenta pago: {{carrerasdisponibles[i].cuentapago}}</div>
+                    <div class="desc">Tipo Actividad: {{carrerasdisponibles[i].tipoactividad}}</div>
+                    <div class="desc">Patrocina: {{carrerasdisponibles[i].patrocinador}}</div>
+                    <div class="desc">Categoría: {{carrerasdisponibles[i].categoria}}</div>
+                </div>
+                    <button *ngIf="!carrerasdisponibles[i].suscrito" class="buttons" >Inscribirse</button>
+            </div>
+        </section>
+    </div>
+   
+</div>
+

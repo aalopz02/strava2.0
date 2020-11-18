@@ -15,6 +15,12 @@ export class newCarreraService {
     return this.http.get<any[]>(`https://localhost:44379/api/Carreras?`);
   }
 
+  getAllForUser(username : string) {
+    const params = new HttpParams()
+      .set('username', username)
+    return this.http.get<any[]>(`https://localhost:44379/api/Carreras?` + params.toString());
+  }
+
   crearCarrera(carrera : carrera) {
     const Base_url = 'https://localhost:44379/api/Cliente?';
     console.log(categoria); 

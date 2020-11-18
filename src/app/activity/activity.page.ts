@@ -4,6 +4,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 //import * as xml2js from 'xml2js';
 import { parseString } from 'xml2js';
 import { utf8Encode } from '@angular/compiler/src/util';
+import { UsuarioService } from '../services/usuario.service';
+import { UserActivityService } from '../services/user-activity.service';
+import { Actividad } from '../models/actividad';
 
 enum StatusChonometer {
   desactived = 0,
@@ -35,10 +38,17 @@ export class ActivityPage implements OnInit {
   file: File;
   ActivityCoordinates: any = [];
   userpath: any = null;
+  activitydate: string = null;
+  duracion: any = [];
+  distancia: number = 0;
+  actityToSend: Actividad;
+  gpxFile: string | ArrayBuffer;
 
 
 
-  constructor(private geolocation: Geolocation) { }
+
+
+  constructor(private geolocation: Geolocation, private userActivity: UserActivityService, private userService: UsuarioService) { }
 
   ngOnInit() {
 
@@ -89,7 +99,9 @@ export class ActivityPage implements OnInit {
         chronometer.start();
         break;
     case StatusChonometer.finish:
+        this.duracion = chronometer.second;
         chronometer.stop();
+        this.checkToSave();
         break;
     default:
         break;
@@ -103,12 +115,14 @@ export class ActivityPage implements OnInit {
   loadGpxFromDevice(event) {
     this.file = event.target.files[0];
     let fileReader = new FileReader();
-    this.ActivityCoordinates = [];
     fileReader.onload = (e) => {
       parseString(fileReader.result, { explicitArray: true }, (error, result) => {
         if (error) {
           throw new Error(error);
         } else {
+
+          this.gpxFile = fileReader.result;
+
           const data = result.gpx.trk[0].trkseg[0].trkpt;
           
           
@@ -141,7 +155,9 @@ export class ActivityPage implements OnInit {
     
     this.map.setCenter(new google.maps.LatLng(this.ActivityCoordinates[0].lat, this.ActivityCoordinates[0].lng));
     
+    
     this.userpath.setMap(this.map);  
+    this.distancia = Math.round(google.maps.geometry.spherical.computeLength(this.userpath.getPath()));
   }
 
 
@@ -149,8 +165,37 @@ export class ActivityPage implements OnInit {
     if(this.userpath === null){
       console.log("No se ha cargado un archivo pgx")
     }else{
+      this.ActivityCoordinates = [];
+      this.distancia = 0;
       this.userpath.setMap(null);
     }
+  }
+
+
+  checkToSave(){
+
+    var date = new Date();
+    var dd = String(date.getDate()). padStart(2, '0');
+    var mm = String(date. getMonth() + 1). padStart(2, '0'); //January is 0!
+    var yyyy = date.getFullYear();
+​
+    const today = yyyy + '-' + mm + '-' + dd;   
+
+    
+    
+    this.actityToSend = {
+      nombreusuario: this.userService.username,
+      date: today,
+      duracion: this.duracion,
+      distancia: this.distancia+'',
+      tipo: 'reto',
+      idact: '3'
+    }
+
+    this.userActivity.POSTActivity(this.actityToSend, this.gpxFile).subscribe(data => {
+      console.log(data);
+    })
+
   }
 
 }

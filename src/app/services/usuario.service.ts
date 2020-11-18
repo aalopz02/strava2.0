@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { UsuarioLogin } from '../interfaces/usuario-login';
 import { Observable } from 'rxjs/internal/Observable';
 import { Usuario } from '../models/usuario';
@@ -34,9 +34,8 @@ export class UsuarioService {
   }
 
   getUsuario(){
-
     return this.http.get<Usuario>(this.BaseUrl + '/' + this.username)
-
   }
+
 
 }

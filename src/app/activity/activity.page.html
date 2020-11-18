@@ -1,16 +1,23 @@
+
 <ion-header class="bg">
   <ion-toolbar class="toolbar">
-    <ion-buttons>
-      <ion-back-button slot="start" defaultHref=""></ion-back-button>
-      <input slot="end"
-      type="file"
-      name="file"
-      id="file"
-      class="fileInput"
-      (change)="loadGpxFromDevice($event)"/>
-        <label for="file"><ion-icon style="zoom:1.5;" name="arrow-up-circle-outline"></ion-icon>Add GPX</label>
-      <ion-button (click)="deletePathInMap()">Remove path</ion-button>
-    </ion-buttons>
+      <ion-row>
+        <ion-col>
+          <ion-back-button defaultHref=""></ion-back-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="removeBtn" (click)="deletePathInMap()"><ion-label class="removelabel">Delete GPX</ion-label><ion-icon name="home" style="zoom: 1.2; position: relative; color:black; " name="close-circle-outline"></ion-icon></ion-button>
+        </ion-col>
+        <ion-col>
+          <input slot="end"
+                type="file"
+                name="file"
+                id="file"
+                class="fileInput"
+                (change)="loadGpxFromDevice($event)"/>
+            <label for="file"><ion-icon style="zoom:1.5;" name="arrow-up-circle-outline"></ion-icon>Add GPX</label>
+        </ion-col>
+      </ion-row>
   </ion-toolbar>
 </ion-header>
 
@@ -26,7 +33,7 @@
         <ion-item class="bg-item">
           <ion-card class="card">
             <ion-card-header class="card-header">Distance</ion-card-header>
-            <ion-card-content class="card-content"> 0 km </ion-card-content>
+            <ion-card-content class="card-content"> {{distancia/1000}} km </ion-card-content>
           </ion-card>
         </ion-item>
       </ion-col>

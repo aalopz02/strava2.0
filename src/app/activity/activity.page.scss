@@ -30,7 +30,21 @@
     padding: 3em 1em;
     border: 1px solid #ccc;
     cursor: pointer;
+
 }
+
+.removelabel{
+    display: inline-block;
+}
+.removeBtn{
+    --background: none;
+    --color: black;
+    --border-width: none;
+    --box-shadow: none;
+    background-color: transparent;
+    
+}
+
 
 .bg-item{
     --background: none;
@@ -56,6 +70,8 @@
 .bgCol{
     --background: none;
 }
+
+
 
 .start-btn{
     background-color: rgb(253, 210, 142);

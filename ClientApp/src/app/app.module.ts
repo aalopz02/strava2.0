@@ -15,6 +15,11 @@ import { RetosCreateComponent } from './retos-create/retos-create.component';
 import { RetosListComponent } from './retos-list/retos-list.component';
 import { RetosModifyComponent } from './retos-modify/retos-modify.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GruposCreateComponent } from './grupos-create/grupos-create.component';
+import { GruposListComponent } from './grupos-list/grupos-list.component';
+import { GruposModifyComponent } from './grupos-modify/grupos-modify.component';
+import { InscCarreraComponent } from './insc-carrera/insc-carrera.component';
+import { InscRetoComponent } from './insc-reto/insc-reto.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +33,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RetosModifyComponent,
     RetosListComponent,
     RetosCreateComponent,
-    modificarCarreraComponent
+    modificarCarreraComponent,
+    GruposCreateComponent,
+    GruposListComponent,
+    GruposModifyComponent,
+    InscCarreraComponent,
+    InscRetoComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+
+  BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -44,7 +55,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       { path: 'retos', component: RetosMainComponent },
       { path: 'modificar-retos', component: RetosModifyComponent },
       { path: 'retos-nuevo', component: RetosCreateComponent },
-      { path: 'retos-list', component: RetosListComponent }
+      { path: 'retos-list', component: RetosListComponent },
+      { path: 'grupos-nuevo', component: GruposCreateComponent},
+      { path: 'grupos-list', component: GruposListComponent },
+      { path: 'grupos-modify', component: GruposModifyComponent },
+      { path: 'insc-reto', component: InscRetoComponent },
+      { path: 'insc-carrera', component: InscCarreraComponent }
     ])
   ],
   providers: [],

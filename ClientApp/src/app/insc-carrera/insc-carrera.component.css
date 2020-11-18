@@ -1,4 +1,6 @@
-
+.jumbotron{
+    background-color: cadetblue;
+  }
   .container {
     background-color: whitesmoke;
   }

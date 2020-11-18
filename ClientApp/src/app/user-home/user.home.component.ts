@@ -17,10 +17,11 @@ import { actividadesService } from '../services/actividades.service';
 
 })
 export class UserHomeComponent implements OnInit {
-  baseUrl = "https://localhost:8080/";
+  baseUrl = "https://localhost:8080/imgrepo/";
   user: any = [];
   userimage = '';
   actividades = [];
+  
   constructor(private userService: UserService,private actservice: actividadesService) { }
 
   ngOnInit(): void {

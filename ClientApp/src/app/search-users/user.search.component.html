@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link"  [routerLink]="['../user-home'] ">Home</a>
             </li>
             <li class="nav-item">
                 <button class="btn btn-outline-info my-2 my-sm-0" [routerLink]="['../login'] ">Search</button>
@@ -29,7 +29,7 @@
                     <div class="cardheader">
                     </div>
                     <div class="avatar">
-                        <img alt="" [src]="['https://localhost:8080/' + resultados[i].imagenperfil]">
+                        <img alt="" [src]="['https://localhost:8080/imgrepo/' + resultados[i].imagenperfil]">
                         <div class="name">
                             <a target="_blank" href="https://scripteden.com/">{{resultados[i].nombreusuario}}</a>
                         </div>
@@ -38,7 +38,8 @@
                         <div class="desc">Nombre: {{resultados[i].fname}} {{resultados[i].mname}} {{resultados[i].lname}}</div>
                         <div class="desc">Nacionalidad: {{resultados[i].nacionalidad}}</div>   
                     </div>
-                    <button class="buttons" (click)="seguir($event, usuario)"> Seguir</button>   
+                        <button *ngIf="!siguiendo(resultados[i].siguiendo)" class="buttons" (click)="seguir($event, usuario)">Seguir</button>
+                        <button *ngIf="siguiendo(resultados[i].siguiendo)" class="buttonred" (click)="seguir($event, usuario)">Dejar de Seguir</button>
                 </div>
                 
             </section>

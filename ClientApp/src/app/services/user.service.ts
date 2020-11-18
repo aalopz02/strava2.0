@@ -11,13 +11,13 @@ export class UserService {
   BaseUrl: string = 'https://localhost:44379/api/Usuario'
   urlSeguidores: string = 'https://localhost:44379/api/Seguidores'
   userLogged: any = [];
+  url2 : string  = 'https://localhost:44379/api/Actividad';
 
   constructor(private http: HttpClient) { }
 
   setUserLogged(user: any){
     this.userLogged = user;
   }
-
 
   POSTUser(user: User, img : string | ArrayBuffer){
 

@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { NgModule } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from '../services/user.service';
-import { User } from '../models/user.model';
+import { UserSearchModel } from '../models/usuario.search.model';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ export class UserSearch implements OnInit {
   registerForm: FormGroup;
   busqueda: string;
   error: string;
-  resultados  = [];
+  resultados = [];
   user: any = [];
   constructor( private formBuilder: FormBuilder,private service: UserService){  }
 
@@ -30,6 +30,7 @@ export class UserSearch implements OnInit {
     this.registerForm = this.formBuilder.group({
       busqueda: ['all']
   });
+  
   this.user = this.service.userLogged;
   console.log("Usuario:");
   console.log(this.user);
@@ -58,5 +59,11 @@ export class UserSearch implements OnInit {
   }
   seguir(event, item){
     this.service.seguirUsuario(item["nombreusuario"],this.user["nombreusuario"]);
+  }
+  siguiendo(result : boolean){
+    if (result){ 
+      return true;
+    } 
+    return false;
   }
 }

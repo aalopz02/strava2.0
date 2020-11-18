@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  error: string;
   checkuserForm: FormGroup;
   usertoCheck: any = [];
   username:'';
@@ -30,8 +30,9 @@ export class LoginComponent implements OnInit {
     this.userService.checkLogIn(userdata.username).subscribe(res => {
       
       this.usertoCheck = res;
+
       if(this.usertoCheck == null){
-        console.log('Usuario no registrado')
+        this.error = 'Usuario no registrado';
 
       }else if (this.usertoCheck.contraseña == userdata.password){
         console.log('Ingresando')
@@ -39,8 +40,9 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/user-home']);
 
       }else{
-        console.log('Contraseña incorrecta')
+        this.error = 'Contraseña incorrecta';
       }
+
     })
     
   }

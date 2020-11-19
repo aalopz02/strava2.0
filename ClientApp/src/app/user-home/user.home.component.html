@@ -48,7 +48,7 @@
                 <div class="info">
                     <div class="desc">Tipo Actividad: {{actividades[i].tipoactividad}} </div>
                     <div class="desc">Distancia: {{actividades[i].distancia}}</div>  
-                    
+                    <button class="btn" (click)="loadMap(i)">sdfsdf</button>
                     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP4uhFoFputXsRIVCA5Oaqi5b_x3DyOwg&callback=initMap"></script>
                     <div [id]="i" style="height: 500px;width: 500px;"></div>
                     

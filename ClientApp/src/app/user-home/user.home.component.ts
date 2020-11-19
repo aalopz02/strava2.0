@@ -52,7 +52,7 @@ export class UserHomeComponent implements OnInit {
   loadMap(data: number) {
     // create a new map by passing HTMLElement
     var map: any = null;
-    const mapEle: HTMLElement = document.getElementById("2");
+    const mapEle: HTMLElement = document.getElementById(data.toString());
     // create LatLng objectlat="9.8776180" lon="-83.9376610"
     const myLatLng = {lat: 9.8776180, lng: -83.9376610};
     // create map

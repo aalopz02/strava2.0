@@ -12,6 +12,7 @@ export class actividadesService {
   url : string = `https://localhost:44379/api/Actividad`;
 
   getAll(usuario : string) {
+    //esto get para las actividades de un usuario loggeado
     return this.http.get<any[]>(this.url + `/` + usuario["nombreusuario"]);
   }
 

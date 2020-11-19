@@ -7,6 +7,7 @@ export class carreraView {
     tipoactividad : string;
     patrocinador : string;
     categoria : string;
+    logo : string;
     suscrito : boolean;
 
     public constructor(init?: Partial<carreraView>) {

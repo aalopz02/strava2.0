@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -21,6 +21,8 @@ import { UserHomeComponent } from './user-home/user.home.component';
 import { UserSearch } from './search-users/user.search.component';
 import { ActivityUSer} from './activity/activity.user.component';
 import { UserCarrerasSub } from './user-carreras-subs/user.carreras.subs.component';
+import { NavMenuUser } from './navbar-user/navbar.user.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { UserCarrerasSub } from './user-carreras-subs/user.carreras.subs.compone
     UserHomeComponent,
     UserSearch,
     ActivityUSer,
-    UserCarrerasSub
+    UserCarrerasSub,
+    NavMenuUser
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -65,6 +68,7 @@ import { UserCarrerasSub } from './user-carreras-subs/user.carreras.subs.compone
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -43,7 +43,8 @@ export class ActivityPage implements OnInit {
   distancia: number = 0;
   actityToSend: Actividad;
   gpxFile: string | ArrayBuffer;
-
+  tipo: string;
+  activity: string;
 
 
 
@@ -181,6 +182,23 @@ export class ActivityPage implements OnInit {
 ​
     const today = yyyy + '-' + mm + '-' + dd;   
 
+    if(this.userActivity.isRace){
+      this.tipo = 'carrera'
+    }else{
+      this.tipo = 'reto'
+    }
+
+    const activity = this.userActivity.activityType;
+
+    if(activity === 'hike'){
+      this.activity = '6';
+    }else if(activity === 'cycling'){
+      this.activity = '3';
+    }else if(activity === 'run'){
+      this.activity = '1';
+    }else{
+      this.activity = '4';
+    }
     
     
     this.actityToSend = {
@@ -188,12 +206,14 @@ export class ActivityPage implements OnInit {
       date: today,
       duracion: this.duracion,
       distancia: this.distancia+'',
-      tipo: 'reto',
-      idact: '3'
+      tipo: this.tipo,
+      idact: this.activity
     }
 
     this.userActivity.POSTActivity(this.actityToSend, this.gpxFile).subscribe(data => {
-      console.log(data);
+      if(data == null){
+        confirm('Activity Registered')
+      }
     })
 
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario';
+import { UserActivityService } from '../services/user-activity.service';
 import { UsuarioService } from '../services/usuario.service';
 
 @Component({
@@ -11,8 +12,10 @@ import { UsuarioService } from '../services/usuario.service';
 export class IndexPage implements OnInit {
 
   userdata: Usuario = new Usuario();
+  race: boolean = false;
+  itemSelect: boolean = false;
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private router: Router, private activityService: UserActivityService) { }
 
   ngOnInit() {
     this.usuarioService.getUsuario().subscribe(res =>
@@ -23,6 +26,18 @@ export class IndexPage implements OnInit {
 
   startActivity(){
     this.router.navigate(['/start']);
+  }
+
+  updateRace(){
+    this.race = !this.race;
+    this.activityService.isRace = this.race;
+    
+
+  }
+
+  onSelectActivity(selectedValue: any){
+    console.log(selectedValue.detail.value);
+    this.activityService.setActivity(selectedValue.detail.value);
   }
 
 }

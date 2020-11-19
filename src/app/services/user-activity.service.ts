@@ -7,8 +7,10 @@ import { Actividad } from '../models/actividad';
 })
 export class UserActivityService {
 
-  constructor(private http: HttpClient) { }
+  isRace: boolean;
+  activityType: string = '';
 
+  constructor(private http: HttpClient) { }
 
   POSTActivity(activity: Actividad, path: string | ArrayBuffer){
 
@@ -24,5 +26,9 @@ export class UserActivityService {
     
     //console.log(path);
     return this.http.post(BaseUrl + params.toString(),{'file': path})
+  }
+
+  setActivity(activity: string){
+    this.activityType = activity;
   }
 }

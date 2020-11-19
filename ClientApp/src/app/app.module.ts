@@ -22,6 +22,9 @@ import { InscCarreraComponent } from './insc-carrera/insc-carrera.component';
 import { InscRetoComponent } from './insc-reto/insc-reto.component';
 import { GruposMainComponent } from './grupos-main/grupos-main.component';
 import { UserRetosSubsComponent } from './user-retos-subs/user-retos-subs.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { UserHomeComponent } from './user-home/user.home.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { UserRetosSubsComponent } from './user-retos-subs/user-retos-subs.compon
     InscRetoComponent,
     GruposMainComponent,
     UserRetosSubsComponent
+    LoginComponent,
+    RegisterComponent,
+    UserHomeComponent
   ],
   imports: [
 
@@ -67,6 +73,9 @@ import { UserRetosSubsComponent } from './user-retos-subs/user-retos-subs.compon
       { path: 'insc-carrera', component: InscCarreraComponent },
       { path: 'grupos', component: GruposMainComponent },
       { path: 'user-retos', component: UserRetosSubsComponent }
+      { path: 'user-home', component: UserHomeComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent }
     ])
   ],
   providers: [],

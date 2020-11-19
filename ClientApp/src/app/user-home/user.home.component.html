@@ -1,24 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bde2ff;">
-    <a class="navbar-brand" href="#">StraviaTEC</a>
+    <a class="navbar-brand" href="#">StravaTEC</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link"  [routerLink]="['../user-home'] ">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a   class="nav-link" [routerLink]="['../search-users'] ">Mi perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a   class="nav-link" [routerLink]="['../activity'] ">Actividad</a>
             </li>
+            <li class="nav-item">
+                <button class="btn btn-outline-info my-2 my-sm-0" [routerLink]="['../search-users'] ">Search</button>
+            </li>
+           
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 
@@ -27,10 +27,9 @@
 <section class="card">
     <div class="card hovercard">
         <div class="cardheader">
-
         </div>
         <div class="avatar">
-            <img alt="" src="http://lorempixel.com/output/people-q-g-100-100-7.jpg">
+            <img [src]="userimage" alt="">
         </div>
         <div class="info">
             <div class="title">
@@ -56,4 +55,28 @@
         </div>
     </div>
 </section>
+<div class="container">
+    <div class="row">
+        <section class="card col-4" *ngFor="let actividadUsuario of actividades; let i = index">
+            <div class="card hovercard">
+                <div class="cardheader">
+                </div>
+                <div class="avatar">
+                    <img alt="" [src]="['https://localhost:8080/imgrepo/' + actividades[i].imagenperfil]">
+                    <div class="name">
+                        <a target="_blank" href="https://scripteden.com/">{{actividades[i].nombreusuario}}</a>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="desc">Tipo Actividad: {{actividades[i].tipoactividad}} </div>
+                    <div class="desc">Distancia: {{actividades[i].distancia}}</div>  
+                </div>
+                  
+            </div>
+            
+        </section>
+    </div>
+   
+</div>
+
 

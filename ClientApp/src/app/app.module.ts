@@ -25,7 +25,8 @@ import { UserRetosSubsComponent } from './user-retos-subs/user-retos-subs.compon
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserHomeComponent } from './user-home/user.home.component';
-
+import { UserSearch } from './search-users/user.search.component';
+import { ActivityUSer} from './activity/activity.user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,9 @@ import { UserHomeComponent } from './user-home/user.home.component';
     UserRetosSubsComponent
     LoginComponent,
     RegisterComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserSearch,
+    ActivityUSer
   ],
   imports: [
 
@@ -75,7 +78,9 @@ import { UserHomeComponent } from './user-home/user.home.component';
       { path: 'user-retos', component: UserRetosSubsComponent }
       { path: 'user-home', component: UserHomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'search-users', component: UserSearch },
+      { path: 'activity', component: ActivityUSer }
     ])
   ],
   providers: [],

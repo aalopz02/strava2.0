@@ -1,12 +1,11 @@
-export class User {
+export class UserSearchModel {
 
     fname: string;
     mname: string;
     lname: string;
-    birthday: Date;
-    nationality: string;
-    username: string;
-    password: string;
+    nacionalidad: string;
+    nombreusuario: string;
+    siguiendo: boolean;
     imagenperfil : string;
     
     public constructor() {

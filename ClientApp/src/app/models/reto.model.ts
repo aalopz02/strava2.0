@@ -1,19 +1,15 @@
-export class Reto {
-  name: string;
-  time_available: string;
-  activity_type:string;
-  type:string;
-  privacy:string;
+export class reto {
+  nombrereto: string;
+  d1: string;
+  d2:string;
+  tipoactividad:string;
+  tipo:string;
+  privacidad:string;
+  patrocinadorId : number;
 
-
-  constructor(name: string, time_available: string, activity_type: string, type: string, privacy: string){
-    this.name = name;
-    this.time_available = time_available;
-    this.activity_type = activity_type;
-    this.type = type;
-    this.privacy = privacy;
-   
-  }
+  public constructor(init?: Partial<reto>) {
+    Object.assign(this, init);
+}
 
 }
 

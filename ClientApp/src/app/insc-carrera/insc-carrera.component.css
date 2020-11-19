@@ -1,4 +1,6 @@
-
+.jumbotron{
+    background-color: cadetblue;
+  }
   .container {
     background-color: whitesmoke;
   }
@@ -24,11 +26,3 @@
     background-color: #caffae;
     
   }
-
-
-  
- span:before{
-  content:" "; 
-  display:inline-block; 
-  width:100px;
-}

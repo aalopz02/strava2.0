@@ -12,48 +12,61 @@
     <div class="jumbotron">
       <h1 class="display-5" align="center">Crear un Reto</h1>
       
-      <form [formGroup]="retoForm" (submit)="onSubmit(retoForm.value)" >
+      <form [formGroup]="retoForm" (submit)="onSubmit()" >
             <div class="col-md-6 mb-3 mx-auto"  >
               <label class="labelfont" for="name">Nombre del Reto:</label>
-              <input type="text" class="form-control"  formControlName="name" id="name" #name required>
+              <input type="text" class="form-control"  formControlName="nombrereto" id="name" #name required>
             </div>
             <div class="col-md-6 mb-3 mx-auto">
               <div class="container">
               <label class="labelfont" for="lastname1">Periodo en el que esta disponible:</label>
               <br>
               <label class="labelfont" for="lastname1">Inicio:</label>
-        <input class="form-control" type="date"  id="example-date-input">
+        <input class="form-control" formControlName="d1" type="date"  id="d1" required>
         <label class="labelfont" for="lastname1">Final:</label>
-        <input class="form-control" type="date"  id="example-date-input2">
+        <input class="form-control" formControlName="d2" type="date"  id="d2" required>
       </div>
             </div>
+            <div  class="col-md-6 mb-3 mx-auto">
+              <label for="tipoactividad">Tipo de actividad </label>
+                  <select formControlName="tipoactividad" id="tipoactividad">
+                      <option *ngFor="let actividad of tipoactividad; let i = index" [value]="tipoactividad[i].idact">
+                          {{tipoactividad[i].nombre}}
+                      </option>
+                   </select>
+          </div>
             <div class="col-md-6 mb-3 mx-auto">
-              <label class="labelfont" for="lastname2">Tipo de actividad:</label>
-              <select class="form-control">
+              <label class="labelfont" for="lastname2">Tipo :</label>
+              <select class="form-control" formControlName="tipo" >
                 <option value="RetoFondo">Reto de fondo</option>
                 <option value="Altitud">Altitud</option>
               </select>
             </div>
             <div class="col-md-6 mb-3 mx-auto">
               <label class="labelfont" for="privacy">Privacidad:</label>
-              <select class="form-control">
-                <option value="RetoFondo">Privado</option>
-                <option value="Altitud">Público</option>
+              <select class="form-control" formControlName="privacidad" >
+                <option value="Privado">Privado</option>
+                <option value="Publico">Publico</option>
               </select>
             </div>
-            <div class="col-md-6 mb-3 mx-auto">
-              <label class="labelfont" for="patrocinadores">Patrocinadores</label>
-              <!--<mat-form-field appearance="fill">
-                
-                <mat-select [formControl]="toppings" multiple>
-                  <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option> 
-                </mat-select> 
-              </mat-form-field>-->
-            </div>
-    </form>
+            <div  class="col-md-6 mb-3 mx-auto"> 
+              <label for="patrocinadorId">Patrocinadores </label>
+                  <select formControlName="patrocinadorId" id="patrocinadorId">
+                      <option *ngFor="let patrocinador of patrocinadores; let i = index" [value]="patrocinadores[i].idpat">
+                          {{patrocinadores[i].nombre}}
+                      </option>
+                   </select>
+          </div>
+  
            <div class="col-md-6 mb-3 mx-auto" align="center">
+            <div class="form-group">
            <button class="btn btn-primary  mx-auto" type="submit" align="center">Registrar reto</button>
           </div>
+          </div>
+
+        </form>
         </div>
+
+      
   </div>
  </div>

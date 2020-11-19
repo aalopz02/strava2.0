@@ -25,10 +25,8 @@
     
   }
 
-
-  
- span:before{
-  content:" "; 
-  display:inline-block; 
-  width:100px;
-}
+  span:before{
+    content:" "; 
+    display:inline-block; 
+    width:100px;
+  }

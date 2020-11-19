@@ -15,6 +15,13 @@ import { RetosCreateComponent } from './retos-create/retos-create.component';
 import { RetosListComponent } from './retos-list/retos-list.component';
 import { RetosModifyComponent } from './retos-modify/retos-modify.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GruposCreateComponent } from './grupos-create/grupos-create.component';
+import { GruposListComponent } from './grupos-list/grupos-list.component';
+import { GruposModifyComponent } from './grupos-modify/grupos-modify.component';
+import { InscCarreraComponent } from './insc-carrera/insc-carrera.component';
+import { InscRetoComponent } from './insc-reto/insc-reto.component';
+import { GruposMainComponent } from './grupos-main/grupos-main.component';
+import { UserRetosSubsComponent } from './user-retos-subs/user-retos-subs.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserHomeComponent } from './user-home/user.home.component';
@@ -32,12 +39,20 @@ import { UserHomeComponent } from './user-home/user.home.component';
     RetosListComponent,
     RetosCreateComponent,
     modificarCarreraComponent,
+    GruposCreateComponent,
+    GruposListComponent,
+    GruposModifyComponent,
+    InscCarreraComponent,
+    InscRetoComponent,
+    GruposMainComponent,
+    UserRetosSubsComponent
     LoginComponent,
     RegisterComponent,
     UserHomeComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+
+  BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -51,6 +66,13 @@ import { UserHomeComponent } from './user-home/user.home.component';
       { path: 'modificar-retos', component: RetosModifyComponent },
       { path: 'retos-nuevo', component: RetosCreateComponent },
       { path: 'retos-list', component: RetosListComponent },
+      { path: 'grupos-nuevo', component: GruposCreateComponent},
+      { path: 'grupos-list', component: GruposListComponent },
+      { path: 'grupos-modify', component: GruposModifyComponent },
+      { path: 'insc-reto', component: InscRetoComponent },
+      { path: 'insc-carrera', component: InscCarreraComponent },
+      { path: 'grupos', component: GruposMainComponent },
+      { path: 'user-retos', component: UserRetosSubsComponent }
       { path: 'user-home', component: UserHomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent }

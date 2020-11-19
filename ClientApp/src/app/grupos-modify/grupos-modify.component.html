@@ -11,20 +11,20 @@
   <div class="container-sm pt-3">
     <div class="jumbotron">
       <h1 class="display-5" align="center">Modificar Grupo</h1>
-      
-      <form [formGroup]="grupoForm" (submit)="onSubmit(grupoForm.value)" >
-            <div class="col-md-6 mb-3 mx-auto"  >
-              <label class="labelfont" for="name">Nombre de Grupo:</label>
-              <input type="text" class="form-control"  formControlName="name" id="name" #name required>
-            </div>
-            <div class="col-md-6 mb-3 mx-auto"  >
-                <label class="labelfont" for="name">Nombre de Usuario:</label>
-                <input type="text" class="form-control"  formControlName="name" id="name" #name required>
-              </div>
-    </form>
-           <div class="col-md-6 mb-3 mx-auto" align="center">
-           <button class="btn btn-primary  mx-auto" type="submit" align="center">Crear</button>
-          </div>
+      <form [formGroup]="grupoForm" (submit)="onSubmit()" >
+        <div class="col-md-6 mb-3 mx-auto"  >
+          <label class="labelfont" for="name">Nombre de Grupo:</label>
+          <input type="text" class="form-control"  formControlName="nombregrupo" id="nombregrupo" #name required>
         </div>
+        <div class="col-md-6 mb-3 mx-auto"  >
+            <label class="labelfont" for="name">Nombre Admin:</label>
+            <input type="text" class="form-control"  formControlName="nombreusuario" id="nombreusuario" #name required>
+          </div>
+
+       <div class="col-md-6 mb-3 mx-auto" align="center">
+       <button class="btn btn-primary  mx-auto" type="submit" align="center">Modificar</button>
+      </div>
+    </form>
+    </div>
   </div>
  </div>

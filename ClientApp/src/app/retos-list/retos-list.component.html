@@ -13,5 +13,9 @@
       <h1 class="display-5" align="center">Lista de Retos</h1>
     </div>
   </div>
+  <ul class="list-group"  *ngFor="let reto of retosdisponibles; let i = index">
+    <li class="list-group-item">Nombre Reto: {{retosdisponibles[i].nombrereto}} <span> <button class="btn btn-primary" (click)="modify(retosdisponibles[i].nombrereto)">Modificar</button></span> <span> <button class="btn btn-danger" (click)="delete(retosdisponibles[i].nombrereto)" >Delete</button></span></li>
+  </ul>
+
  </div>
 

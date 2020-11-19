@@ -1,6 +1,8 @@
-
+.jumbotron{
+    background-color: cadetblue;
+  }
   .container {
-    background-color: whitesmoke;
+    background-color: white;
   }
   
   .page-holder {
@@ -25,10 +27,15 @@
     
   }
 
+  .h2 {
+    text-align: center;
+    color: white;
+  }
+ 
+  .titlec {
+    float:center;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+  }
 
-  
- span:before{
-  content:" "; 
-  display:inline-block; 
-  width:100px;
-}

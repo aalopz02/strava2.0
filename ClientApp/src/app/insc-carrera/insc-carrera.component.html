@@ -13,14 +13,24 @@
       <h1 class="display-5" align="center">Inscribirse en una Carrera</h1>
       
       <form [formGroup]="insccarreraForm" (submit)="onSubmit(insccarreraForm.value)" >
-            <div class="col-md-6 mb-3 mx-auto"  >
-              <label class="labelfont" for="name">Nombre de Usuario:</label>
-              <input type="text" class="form-control"  formControlName="name" id="name" #name required>
-            </div>
-    </form>
-           <div class="col-md-6 mb-3 mx-auto" align="center">
-           <button class="btn btn-primary  mx-auto" type="submit" align="center">Inscribirse en la Carrera</button>
-          </div>
+        <div class="col-md-6 mb-3 mx-auto"  >
+          <label class="labelfont" for="name">Nombre Carrera:</label>
+          <input type="text" class="form-control"  formControlName="nombrecarrera" id="nombrecarrera" #name required>
+        </div>
+        <div class="col-md-6 mb-3 mx-auto"  >
+          <label class="labelfont" for="name">Nombre Usuario:</label>
+          <input type="text" class="form-control"  formControlName="nombreusuario" id="nombreusuario" #name required>
+        </div>
+          <div class="col-md-6 mb-3 mx-auto" align="center">
+            <span>Recibo: </span>
+            <span>{{file ? file.name : 'Arrastre el archivo' }}</span>
+            <input class="file-input" formControlName="recibo" type="file" (change)="onUploadImage($event)">
+        </div>
+
+        <div class="col-md-6 mb-3 mx-auto" align="center">
+          <button class="btn btn-primary  mx-auto" type="submit" align="center">Inscribirse en la Carrera</button>
+         </div>
+        </form>
         </div>
   </div>
  </div>

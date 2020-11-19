@@ -24,3 +24,9 @@
     background-color: #caffae;
     
   }
+
+  span:before{
+    content:" "; 
+    display:inline-block; 
+    width:100px;
+  }

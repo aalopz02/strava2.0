@@ -12,15 +12,27 @@
     <div class="jumbotron">
       <h1 class="display-5" align="center">Inscribirse en un Reto</h1>
       
-      <form [formGroup]="inscretoForm" (submit)="onSubmit(inscretoForm.value)" >
-            <div class="col-md-6 mb-3 mx-auto"  >
-              <label class="labelfont" for="name">Nombre de Usuario:</label>
-              <input type="text" class="form-control"  formControlName="name" id="name" #name required>
-            </div>
-    </form>
+      <form [formGroup]="inscretoForm" (submit)="onSubmit()" >
+        <div class="col-md-6 mb-3 mx-auto"  >
+        <div>
+          <label for="nombrereto">Nombre Reto </label>
+              <select formControlName="nombrereto" id="nombrereto">
+                  <option *ngFor="let reto of nombrereto; let i = index" [value]="nombrereto[i].nombrereto">
+                      {{nombrereto[i].nombrereto}}
+                  </option>
+               </select>
+      </div>
+    
+    </div>
+        <div class="col-md-6 mb-3 mx-auto"  >
+          <label class="labelfont" for="name">Nombre Usuario:</label>
+          <input type="text" class="form-control"  formControlName="nombreusuario" id="nombreusuario" #name required>
+        </div>
+    
            <div class="col-md-6 mb-3 mx-auto" align="center">
            <button class="btn btn-primary  mx-auto" type="submit" align="center">Inscribirse en el reto</button>
           </div>
+        </form>
         </div>
   </div>
  </div>

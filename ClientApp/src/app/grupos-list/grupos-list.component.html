@@ -13,5 +13,8 @@
       <h1 class="display-5" align="center">Lista de Grupos</h1>
     </div>
   </div>
+  <ul class="list-group"  *ngFor="let grupo of gruposdisponibles; let i = index">
+    <li class="list-group-item">Nombre Grupo: {{gruposdisponibles[i].nombregrupo}} , Admin: {{gruposdisponibles[i].nombreusuario}} <span> <button class="btn btn-primary" (click)="modify(gruposdisponibles[i].nombregrupo,gruposdisponibles[i].nombreusuario)">Modificar</button></span> <span> <button class="btn btn-danger" (click)="delete(gruposdisponibles[i].nombregrupo,gruposdisponibles[i].nombreusuario)" >Delete</button></span></li>
+  </ul>
  </div>
 

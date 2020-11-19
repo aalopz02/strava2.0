@@ -1,13 +1,11 @@
-export class InscReto {
-  name: string;
-  user:string;
+export class inscReto {
+  nombrereto: string;
+  nombreusuario:string;
 
 
-  constructor(name: string, user:string){
-    this.name = name;
-    this.user = user;
-   
-  }
+  public constructor(init?: Partial<inscReto>) {
+    Object.assign(this, init);
+}
 
 }
 

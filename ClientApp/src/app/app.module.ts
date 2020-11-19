@@ -20,6 +20,7 @@ import { GruposListComponent } from './grupos-list/grupos-list.component';
 import { GruposModifyComponent } from './grupos-modify/grupos-modify.component';
 import { InscCarreraComponent } from './insc-carrera/insc-carrera.component';
 import { InscRetoComponent } from './insc-reto/insc-reto.component';
+import { GruposMainComponent } from './grupos-main/grupos-main.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { InscRetoComponent } from './insc-reto/insc-reto.component';
     GruposListComponent,
     GruposModifyComponent,
     InscCarreraComponent,
-    InscRetoComponent
+    InscRetoComponent,
+    GruposMainComponent
   ],
   imports: [
 
@@ -60,7 +62,8 @@ import { InscRetoComponent } from './insc-reto/insc-reto.component';
       { path: 'grupos-list', component: GruposListComponent },
       { path: 'grupos-modify', component: GruposModifyComponent },
       { path: 'insc-reto', component: InscRetoComponent },
-      { path: 'insc-carrera', component: InscCarreraComponent }
+      { path: 'insc-carrera', component: InscCarreraComponent },
+      { path: 'grupos', component: GruposMainComponent }
     ])
   ],
   providers: [],

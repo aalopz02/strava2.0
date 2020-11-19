@@ -1,13 +1,11 @@
-export class Grupo {
-  name: string;
-  user:string;
+export class grupo {
+  nombregrupo: string;
+  nombreusuario:string;
 
 
-  constructor(name: string, user:string){
-    this.name = name;
-    this.user = user;
-   
-  }
+  public constructor(init?: Partial<grupo>) {
+    Object.assign(this, init);
+}
 
 }
 

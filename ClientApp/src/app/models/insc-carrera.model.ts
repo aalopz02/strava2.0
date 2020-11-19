@@ -1,13 +1,11 @@
-export class InscCarrera {
-  name: string;
-  user:string;
+export class inscCarrera {
+  nombrecarrera: string;
+  nombreusuario:string;
+  recibo:string;
 
-
-  constructor(name: string, user:string){
-    this.name = name;
-    this.user = user;
-   
-  }
+  public constructor(init?: Partial<inscCarrera>) {
+    Object.assign(this, init);
+}
 
 }
 

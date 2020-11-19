@@ -12,19 +12,20 @@
     <div class="jumbotron">
       <h1 class="display-5" align="center">Crear Grupo</h1>
       
-      <form [formGroup]="grupoForm" (submit)="onSubmit(grupoForm.value)" >
+      <form [formGroup]="grupoForm" (submit)="onSubmit()" >
             <div class="col-md-6 mb-3 mx-auto"  >
               <label class="labelfont" for="name">Nombre de Grupo:</label>
-              <input type="text" class="form-control"  formControlName="name" id="name" #name required>
+              <input type="text" class="form-control"  formControlName="nombregrupo" id="nombregrupo" #name required>
             </div>
             <div class="col-md-6 mb-3 mx-auto"  >
-                <label class="labelfont" for="name">Nombre de Usuario:</label>
-                <input type="text" class="form-control"  formControlName="name" id="name" #name required>
+                <label class="labelfont" for="name">Nombre Admin:</label>
+                <input type="text" class="form-control"  formControlName="nombreusuario" id="nombreusuario" #name required>
               </div>
-    </form>
+    
            <div class="col-md-6 mb-3 mx-auto" align="center">
            <button class="btn btn-primary  mx-auto" type="submit" align="center">Crear</button>
           </div>
+        </form>
         </div>
   </div>
  </div>

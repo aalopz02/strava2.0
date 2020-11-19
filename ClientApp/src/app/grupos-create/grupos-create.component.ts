@@ -13,10 +13,22 @@ export class GruposCreateComponent implements OnInit {
   constructor(private formB: FormBuilder, private createService: GruposCreateService) { }
 
   ngOnInit() {
+    this.grupoForm = this.formB.group({
+      nombregrupo: [''],
+      nombreusuario: ['']
+
+  });
   }
 
   onSubmit(formValue: any) {
-
+    this.createService.crearGrupo(this.grupoForm.value)
+    .subscribe(
+      data => {
+          
+      },
+      error => {
+          
+      });
     
   }
 

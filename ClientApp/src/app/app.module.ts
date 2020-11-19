@@ -21,6 +21,7 @@ import { GruposModifyComponent } from './grupos-modify/grupos-modify.component';
 import { InscCarreraComponent } from './insc-carrera/insc-carrera.component';
 import { InscRetoComponent } from './insc-reto/insc-reto.component';
 import { GruposMainComponent } from './grupos-main/grupos-main.component';
+import { UserRetosSubsComponent } from './user-retos-subs/user-retos-subs.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { GruposMainComponent } from './grupos-main/grupos-main.component';
     GruposModifyComponent,
     InscCarreraComponent,
     InscRetoComponent,
-    GruposMainComponent
+    GruposMainComponent,
+    UserRetosSubsComponent
   ],
   imports: [
 
@@ -63,7 +65,8 @@ import { GruposMainComponent } from './grupos-main/grupos-main.component';
       { path: 'grupos-modify', component: GruposModifyComponent },
       { path: 'insc-reto', component: InscRetoComponent },
       { path: 'insc-carrera', component: InscCarreraComponent },
-      { path: 'grupos', component: GruposMainComponent }
+      { path: 'grupos', component: GruposMainComponent },
+      { path: 'user-retos', component: UserRetosSubsComponent }
     ])
   ],
   providers: [],

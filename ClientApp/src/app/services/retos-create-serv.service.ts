@@ -33,4 +33,12 @@ export class RetosCreateServService {
     console.log(`https://localhost:44379/api/Retos?` + params, reto); 
     return this.http.post(`https://localhost:44379/api/Retos?` + params, reto);
   }
+
+  getAllForUser(username : string) {
+    const params = new HttpParams()
+      .set('username', username)
+    return this.http.get<any[]>(`https://localhost:44379/api/Retos?` + params.toString());
+  }
+
+
 }

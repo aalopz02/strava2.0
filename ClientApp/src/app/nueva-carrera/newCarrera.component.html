@@ -61,7 +61,7 @@
     <div>
         <span>Archivo gpx de la ruta: </span>
         <span>{{file ? file.name : 'Arrastre el archivo' }}</span>
-        <input class="file-input" formControlName="ruta" type="file">
+        <input class="file-input" formControlName="ruta" type="file" (change)="fileChanged($event)">
     </div>
     
     <div class="form-group">

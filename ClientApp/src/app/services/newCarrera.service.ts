@@ -15,10 +15,14 @@ export class newCarreraService {
     return this.http.get<any[]>(`https://localhost:44379/api/Carreras?`);
   }
 
-  crearCarrera(carrera : carrera) {
+  getAllForUser(username : string) {
+    const params = new HttpParams()
+      .set('username', username)
+    return this.http.get<any[]>(`https://localhost:44379/api/Carreras?` + params.toString());
+  }
+
+  crearCarrera(carrera : carrera, ruta : string | ArrayBuffer) {
     const Base_url = 'https://localhost:44379/api/Cliente?';
-    console.log(categoria); 
-    console.log(patrocinador); 
     const params = new HttpParams()
       .set('nombreCarrera', carrera.nombrecarrera)
       .set('Costo', carrera.costo.toString())
@@ -26,12 +30,10 @@ export class newCarreraService {
       .set('Fecha', carrera.fecha)
       .set('privacidad', carrera.privacidad)
       .set('idtipo', carrera.tipoactividad.toString())
-      .set('ruta', 'safsdfsdfedf')
+      .set('ruta', 'x')
       .set('patrocinadores', carrera.patrocinadorId.toString())
       .set('categorias', carrera.categoriaId.toString())
-
-    console.log(carrera); 
-    return this.http.post(`https://localhost:44379/api/Carreras?` + params, carrera);
+    return this.http.post(`https://localhost:44379/api/Carreras?` + params, {'file': ruta});
   }
 
   modificarCarrera(carrera : carrera) {

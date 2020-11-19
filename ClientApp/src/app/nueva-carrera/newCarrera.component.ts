@@ -29,6 +29,9 @@ export class CarreraComponent implements OnInit {
   categorias = [];
   patrocinadorId = 0;
   categoriaId = 0;
+  file:any;
+  rutastring : string | ArrayBuffer;
+  
   constructor( private formBuilder: FormBuilder,private service: newCarreraService,
     private serviceTipoAct: tipoActividadService,
     private servicePat : patrocinadorService,
@@ -64,13 +67,28 @@ export class CarreraComponent implements OnInit {
   });
   }
 
+  fileChanged(e) {
+    this.file = e.target.files[0];
+    this.filetostring(this.file);
+}
+
+filetostring(file) {
+  let fileReader = new FileReader();
+  fileReader.onload = (e) => {
+    this.rutastring = fileReader.result;
+    console.log(this.rutastring);
+  }
+  fileReader.readAsText(this.file);;
+}
+
+
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     if (this.registerForm.invalid) {
       return;
     }
-    this.service.crearCarrera(this.registerForm.value)
+    this.service.crearCarrera(this.registerForm.value,this.rutastring)
     .subscribe(
       data => {
           

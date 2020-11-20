@@ -3,13 +3,6 @@
 
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="nombrecarrera">Nombre Carrera</label>
-        <input type="text" formControlName="nombrecarrera" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombrecarrera.errors }"  />
-        <div *ngIf="submitted && f.nombrecarrera.errors" class="invalid-feedback">
-            <div *ngIf="f.nombrecarrera.errors.required">Se necesita nombre de la carrera</div>
-        </div>
-    </div>
-    <div class="form-group">
         <label for="costo">Costo por participar</label>
         <input type="text" formControlName="costo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.costo.errors }" />
         <div *ngIf="submitted && f.costo.errors" class="invalid-feedback">

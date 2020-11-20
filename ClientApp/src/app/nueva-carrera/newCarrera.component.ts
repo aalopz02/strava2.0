@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { actividad } from '../models/actividad.model';
 import { patrocinadorService } from '../services/patrocinadores.service';
 import { categoriaService } from '../services/categoria.service';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -31,11 +32,12 @@ export class CarreraComponent implements OnInit {
   categoriaId = 0;
   file:any;
   rutastring : string | ArrayBuffer;
-  
+
   constructor( private formBuilder: FormBuilder,private service: newCarreraService,
     private serviceTipoAct: tipoActividadService,
     private servicePat : patrocinadorService,
-    private serviceCat : categoriaService){}
+    private serviceCat : categoriaService,
+    private router: Router){}
 
   ngOnInit() {
 
@@ -96,5 +98,6 @@ filetostring(file) {
       error => {
           this.error = error;
       });
+      this.router.navigateByUrl('');
   }
 }

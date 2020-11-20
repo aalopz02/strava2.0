@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { User } from '../models/user.model';
 import { fromEvent, Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,9 @@ export class RegisterComponent implements OnInit {
   imagenCodificada : string | ArrayBuffer;
   registerUserForm: FormGroup;
   userToSend: User = new User;
-
-  constructor(private formB: FormBuilder, private userService: UserService) {
+  
+  
+  constructor(private formB: FormBuilder, private userService: UserService,private router: Router) {
     this.registerUserForm = this.formB.group({
       fname: '',
       mname: '',
@@ -50,6 +52,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.userToSend);
     console.log(formValue.birthday.toString());
     this.userService.POSTUser(this.userToSend,this.imagenCodificada);
+    this.router.navigateByUrl('');
    }
 
   ngOnInit(): void {

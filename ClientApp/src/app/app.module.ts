@@ -31,6 +31,7 @@ import { UserCarrerasSub } from './user-carreras-subs/user.carreras.subs.compone
 import { NavMenuUser } from './navbar-user/navbar.user.component';
 import { GruposUser } from './grupos-user/user.grupos.subs.component';
 import { Usermodify } from './user-modify/user.modify.component';
+import { CarrerasAdminList } from './list-carreras/list.carreras.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { Usermodify } from './user-modify/user.modify.component';
     UserCarrerasSub,
     NavMenuUser,
     GruposUser,
-    Usermodify
+    Usermodify,
+    CarrerasAdminList
   ],
   imports: [
 
@@ -92,7 +94,8 @@ import { Usermodify } from './user-modify/user.modify.component';
       { path: 'activity', component: ActivityUSer },
       { path: 'user-carreras-subs', component: UserCarrerasSub },
       { path: 'grupos-user', component: GruposUser },
-      { path: 'user-modify', component: Usermodify }
+      { path: 'user-modify', component: Usermodify },
+      { path: 'list-carreras', component: CarrerasAdminList }
     ])
   ],
   providers: [],

@@ -11,6 +11,7 @@ import { actividad } from '../models/actividad.model';
 import { patrocinadorService } from '../services/patrocinadores.service';
 import { categoriaService } from '../services/categoria.service';
 import { categoria } from '../models/categoria.model';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -31,21 +32,26 @@ export class modificarCarreraComponent implements OnInit {
   categorias = [];
   patrocinadorId = 0;
   categoriaId = 0;
+  carrera : any;
+  file:any;
+  rutastring : string | ArrayBuffer;
+  
   constructor( private formBuilder: FormBuilder,private service: newCarreraService,
     private serviceTipoAct: tipoActividadService,
     private servicePat : patrocinadorService,
-    private serviceCat : categoriaService
+    private serviceCat : categoriaService,
+    private router: Router
     ){}
 
   ngOnInit() {
-
+    this.carrera = this.service.carrera;
+    console.log(this.carrera);
     this.registerForm = this.formBuilder.group({
-      nombrecarrera: ['', Validators.required],
-      costo: ['', Validators.required],
-      cuentapago: ['', Validators.required],
-      privacidad : ['', Validators.required],
-      fecha : ['', Validators.required],
-      ruta : ['', Validators.required],
+      costo: [this.carrera.costo],
+      cuentapago: [this.carrera.cuentapago],
+      privacidad : [this.carrera.privacidad],
+      fecha : [this.carrera.costo],
+      ruta : [''],
       tipoactividad : [''],
       patrocinadores : [''],
       categorias : [''],
@@ -67,18 +73,33 @@ export class modificarCarreraComponent implements OnInit {
   });
   }
 
+  fileChanged(e) {
+    this.file = e.target.files[0];
+    this.filetostring(this.file);
+}
+
+filetostring(file) {
+  let fileReader = new FileReader();
+  fileReader.onload = (e) => {
+    this.rutastring = fileReader.result;
+    console.log(this.rutastring);
+  }
+  fileReader.readAsText(this.file);;
+}
+
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     if (this.registerForm.invalid) {
       return;
     }
-    this.service.modificarCarrera(this.registerForm.value)
+    this.service.modificarCarrera(this.carrera, this.registerForm.value,this.rutastring)
     .subscribe(
       data => {  
       },
       error => {
           this.error = error;
       });
+    this.router.navigateByUrl('');
   }
 }

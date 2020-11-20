@@ -21,13 +21,10 @@ export class RetosListComponent implements OnInit {
   }
 
   delete(nombreReto:string){
-    console.log("dsad");
-    console.log(nombreReto);
     this.delService.delete(nombreReto);
   }
 
   modify(nombreReto:string){
-    console.log("fes");
     this.router.navigateByUrl('/modificar-retos',{ state: { example: nombreReto } });
   }
 

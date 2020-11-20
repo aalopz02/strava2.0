@@ -24,8 +24,6 @@ export class RetosModifServService {
     .set('Privacidad', reto.privacidad.toString())
     .set('patrocinadores', reto.patrocinadorId.toString())
     
-
-    
     console.log(reto); 
     console.log(`https://localhost:44379/api/Retos?` + params, reto); 
     

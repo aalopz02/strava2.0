@@ -6,6 +6,8 @@ import { fromEvent, Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
 import { inscCarrera } from './../models/insc-carrera.model';
+import { Router } from '@angular/router';
+import { newCarreraService, UserService } from '../services';
 
 @Component({
   selector: 'app-insc-carrera',
@@ -14,15 +16,19 @@ import { inscCarrera } from './../models/insc-carrera.model';
 })
 export class InscCarreraComponent implements OnInit {
 
+  user: any = [];
   imagenCodificada : string | ArrayBuffer;
   insccarreraForm:FormGroup;
-  constructor(private formB: FormBuilder, private createService: InscCarreraServService) { }
+
+  constructor(private formB: FormBuilder, private createService: InscCarreraServService,
+    private router: Router,private userService: UserService,private carreras: newCarreraService) { }
   inscCarreraToSend: inscCarrera = new inscCarrera;
 
   ngOnInit() {
+    this.user = this.userService.userLogged;
     this.insccarreraForm = this.formB.group({
-      nombrecarrera: '',
-      nombreusuario: '',
+      nombrecarrera: this.carreras.carrera.nombrecarrera,
+      nombreusuario: this.user['nombreusuario'],
       recibo :''
     });
   }
@@ -44,6 +50,7 @@ export class InscCarreraComponent implements OnInit {
 
   onSubmit(formValue: any) {
     this.createService.crearInscReto(formValue.nombreusuario,formValue.nombrecarrera,this.imagenCodificada);
+    this.router.navigate(['/user-home']);
   }
 
 }

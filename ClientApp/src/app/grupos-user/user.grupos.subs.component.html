@@ -4,22 +4,13 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
     <div class="row">
-        <section class="card hovercard col-12" *ngFor="let carrera of carrerasdisponibles; let i = index">
-               
-            <div class="avatar">
-                    <img [src]="['https://localhost:8080/imgpats/' + carrerasdisponibles[i].logo]" alt="">
-                </div>
-                
+        <section class="card hovercard col-12" *ngFor="let grupo of gruposdisponibles; let i = index">
                 <div class="info">
-                    <div class="desc">Carrera: {{carrerasdisponibles[i].nombrecarrera}}</div>
-                    <div class="desc">Costo: {{carrerasdisponibles[i].costo}}</div>
-                    <div class="desc">Fecha: {{carrerasdisponibles[i].fecha}}</div>
-                    <div class="desc">Cuenta pago: {{carrerasdisponibles[i].cuentapago}}</div>
-                    <div class="desc">Tipo Actividad: {{carrerasdisponibles[i].tipoactividad}}</div>
-                    <div class="desc">Patrocina: {{carrerasdisponibles[i].patrocinador}}</div>
-                    <div class="desc">Categoría: {{carrerasdisponibles[i].categoria}}</div>
+                    <div class="desc">Nombre: {{gruposdisponibles[i].nombregrupo}}</div>
+                    <div class="desc">Admin: {{gruposdisponibles[i].admin}}</div>
                 </div>
-                <button *ngIf="!carrerasdisponibles[i].suscrito" class="button" >Inscribirse</button>
+                <button *ngIf="!gruposdisponibles[i].suscrito" class="button"> Inscribirse</button>
+                <button *ngIf="gruposdisponibles[i].suscrito" class="button"> Salirse</button>
         </section> 
     </div>  
 </div>

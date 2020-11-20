@@ -19,7 +19,8 @@
                     <div class="desc">Patrocina: {{carrerasdisponibles[i].patrocinador}}</div>
                     <div class="desc">Categoría: {{carrerasdisponibles[i].categoria}}</div>
                 </div>
-                <button *ngIf="!carrerasdisponibles[i].suscrito" class="button" >Inscribirse</button>
+                <button *ngIf="!carrerasdisponibles[i].suscrito" class="button" (click)= "incribirse(carrerasdisponibles[i])">Inscribirse</button>
+                <button *ngIf="carrerasdisponibles[i].suscrito" class="button"> Inscrito</button>
         </section> 
     </div>  
 </div>

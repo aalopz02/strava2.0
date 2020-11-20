@@ -29,6 +29,8 @@ import { UserSearch } from './search-users/user.search.component';
 import { ActivityUSer} from './activity/activity.user.component';
 import { UserCarrerasSub } from './user-carreras-subs/user.carreras.subs.component';
 import { NavMenuUser } from './navbar-user/navbar.user.component';
+import { GruposUser } from './grupos-user/user.grupos.subs.component';
+import { Usermodify } from './user-modify/user.modify.component';
 
 @NgModule({
   declarations: [
@@ -49,14 +51,16 @@ import { NavMenuUser } from './navbar-user/navbar.user.component';
     InscCarreraComponent,
     InscRetoComponent,
     GruposMainComponent,
-    UserRetosSubsComponent
+    UserRetosSubsComponent,
     LoginComponent,
     RegisterComponent,
     UserHomeComponent,
     UserSearch,
     ActivityUSer,
     UserCarrerasSub,
-    NavMenuUser
+    NavMenuUser,
+    GruposUser,
+    Usermodify
   ],
   imports: [
 
@@ -80,13 +84,15 @@ import { NavMenuUser } from './navbar-user/navbar.user.component';
       { path: 'insc-reto', component: InscRetoComponent },
       { path: 'insc-carrera', component: InscCarreraComponent },
       { path: 'grupos', component: GruposMainComponent },
-      { path: 'user-retos', component: UserRetosSubsComponent }
+      { path: 'user-retos', component: UserRetosSubsComponent },
       { path: 'user-home', component: UserHomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'search-users', component: UserSearch },
       { path: 'activity', component: ActivityUSer },
-      { path: 'user-carreras-subs', component: UserCarrerasSub }
+      { path: 'user-carreras-subs', component: UserCarrerasSub },
+      { path: 'grupos-user', component: GruposUser },
+      { path: 'user-modify', component: Usermodify }
     ])
   ],
   providers: [],

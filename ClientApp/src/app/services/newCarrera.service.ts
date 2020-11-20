@@ -10,7 +10,12 @@ import { HttpParams } from '@angular/common/http';
 })
 export class newCarreraService {
   constructor(private http: HttpClient) { }
-  
+  carrera: any = [];
+
+  setCarrera(carrerain : any){
+    this.carrera = carrerain;
+  }
+
   getAll() {
     return this.http.get<any[]>(`https://localhost:44379/api/Carreras?`);
   }

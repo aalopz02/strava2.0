@@ -26,8 +26,6 @@ export class GruposModifService {
   bringGrupo(nombregrupo:string): Observable<any>{
 
     const Base_url = 'https://localhost:44379/api/Grupos/';
-
-  
     return this.http.get(Base_url + nombregrupo);
 }
 }

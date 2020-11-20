@@ -6,7 +6,14 @@ import { inscReto } from './../models/insc-reto.model';
 })
 export class InscRetoServService {
 
+  retos: any;
+
   constructor(private http: HttpClient) { }
+
+
+  setReto(retoin : any){
+    this.retos = retoin;
+  }
 
   crearInscReto(inscReto : inscReto) {
     const Base_url = 'https://localhost:44379/api/Cliente?';
@@ -14,9 +21,13 @@ export class InscRetoServService {
     const params = new HttpParams()
     .set('nombreReto', inscReto.nombrereto)
     .set('nombreUsuario', inscReto.nombreusuario)    
-
-
     console.log(inscReto); 
     return this.http.post(`https://localhost:44379/api/InscripcionesReto?` + params, inscReto);
+  }
+
+  getAllForUser(username: any) {
+    const params = new HttpParams()
+    .set('username', username);
+    return this.http.get<any[]>(`https://localhost:44379/api/InscripcionesReto?` + params.toString());
   }
 }

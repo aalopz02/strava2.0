@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from '../services/user.service';
 import { UserSearchModel } from '../models/usuario.search.model';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ export class UserSearch implements OnInit {
   error: string;
   resultados = [];
   user: any = [];
-  constructor( private formBuilder: FormBuilder,private service: UserService){  }
+  constructor( private formBuilder: FormBuilder,private service: UserService,private router: Router){  }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -59,7 +60,9 @@ export class UserSearch implements OnInit {
   }
   seguir(event, item){
     this.service.seguirUsuario(item["nombreusuario"],this.user["nombreusuario"]);
+    this.router.navigate(['/search-users']);
   }
+
   siguiendo(result : boolean){
     if (result){ 
       return true;

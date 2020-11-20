@@ -1,4 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 //import { AgmCoreModule } from '@agm/core';
 import { newCarreraService } from '../services/newCarrera.service';
@@ -20,7 +21,7 @@ export class UserCarrerasSub implements OnInit {
   user: any = [];
   carrerasdisponibles = [];
   
-  constructor(private userService: UserService,private carreras: newCarreraService) { }
+  constructor(private userService: UserService,private carreras: newCarreraService, private router: Router) { }
 
   ngOnInit(): void {
     this.user = this.userService.userLogged;
@@ -30,6 +31,13 @@ export class UserCarrerasSub implements OnInit {
       this.carrerasdisponibles=data;
       console.log(data);
     });
+  }
+
+  incribirse(carrera : any){
+    this.userService.setUserLogged(this.user);
+    this.carreras.setCarrera(carrera);
+    console.log(carrera);
+    this.router.navigate(['/insc-carrera']);
   }
 
 }

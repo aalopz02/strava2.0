@@ -36,6 +36,26 @@ export class UserService {
 
   }
 
+  modifyUser(user: User, userold : User, img : string | ArrayBuffer){
+    const params = new HttpParams()
+    .set('nombreusuario', userold["nombreusuario"])
+    .set('password', user.password)
+    .set('fname', user.fname)
+    .set('mname', user.mname)
+    .set('lname', user.lname)
+    .set('nacionalidad', user.nationality);
+    console.log(user);
+    console.log(userold);
+    if (img == null){
+      img = "null";
+    }
+    console.log({'file': img.toString()});
+    this.http.patch(this.BaseUrl +'?' + params.toString(),{'file': img.toString()}).subscribe(data => {
+      console.log(data);
+    })
+    
+  }
+
   checkLogIn(username: string){
     return this.http.get<any>(this.BaseUrl+'/'+username)
   }

@@ -1,33 +1,29 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-//import { AgmCoreModule } from '@agm/core';
-import { newCarreraService } from '../services/newCarrera.service';
+import { getgrupos } from '../services/get-grupos.service';
 
 @NgModule({
   imports:[
-    /*AgmCoreModule.forRoot({
-      apiKey:"AIzaSyDXS_5WlYG39gz8Ql2o9Z5ih9NskSwyym8"
-    })*/
   ]
 })
 @Component({
-  selector: 'app-user-carreras-subs',
-  templateUrl: './user.carreras.subs.component.html',
-  styleUrls: ['./user.carreras.subs.component.css']
+  selector: 'app-grupos-user',
+  templateUrl: './user.grupos.subs.component.html',
+  styleUrls: ['./user.grupos.subs.component.css']
 
 })
-export class UserCarrerasSub implements OnInit {
+export class GruposUser implements OnInit {
   user: any = [];
-  carrerasdisponibles = [];
+  gruposdisponibles = [];
   
-  constructor(private userService: UserService,private carreras: newCarreraService) { }
+  constructor(private gruposservice: getgrupos,private userService: UserService) { }
 
   ngOnInit(): void {
     this.user = this.userService.userLogged;
     console.log("Usuario:");
     console.log(this.user);
-    this.carreras.getAllForUser(this.user['nombreusuario']).subscribe(data =>{
-      this.carrerasdisponibles=data;
+    this.gruposservice.getAll(this.user['nombreusuario']).subscribe(data =>{
+      this.gruposdisponibles=data;
       console.log(data);
     });
   }

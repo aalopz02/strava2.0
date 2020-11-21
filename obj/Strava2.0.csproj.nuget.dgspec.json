@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aalop\\Strava2.0\\Strava2.0.csproj": {}
+    "E:\\Documents\\GitHub\\strava2.0\\Strava2.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aalop\\Strava2.0\\Strava2.0.csproj": {
+    "E:\\Documents\\GitHub\\strava2.0\\Strava2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aalop\\Strava2.0\\Strava2.0.csproj",
+        "projectUniqueName": "E:\\Documents\\GitHub\\strava2.0\\Strava2.0.csproj",
         "projectName": "Strava2.0",
-        "projectPath": "C:\\Users\\aalop\\Strava2.0\\Strava2.0.csproj",
-        "packagesPath": "C:\\Users\\aalop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aalop\\Strava2.0\\obj\\",
+        "projectPath": "E:\\Documents\\GitHub\\strava2.0\\Strava2.0.csproj",
+        "packagesPath": "C:\\Users\\adril\\.nuget\\packages\\",
+        "outputPath": "E:\\Documents\\GitHub\\strava2.0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\aalop\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\adril\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,6 +41,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.SpaServices.Extensions": {
               "target": "Package",
@@ -65,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

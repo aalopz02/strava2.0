@@ -6,14 +6,9 @@ import { inscReto } from './../models/insc-reto.model';
 })
 export class InscRetoServService {
 
-  retos: any;
 
   constructor(private http: HttpClient) { }
 
-
-  setReto(retoin : any){
-    this.retos = retoin;
-  }
 
   crearInscReto(inscReto : inscReto) {
     const Base_url = 'https://localhost:44379/api/Cliente?';

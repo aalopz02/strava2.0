@@ -8,9 +8,15 @@ import { HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RetosCreateServService {
-
+  retos:  any = [];
   constructor(private http: HttpClient) { 
   }
+
+  
+  setReto(retoin : any){
+    this.retos = retoin;
+  }
+ 
 
   getAll() {
     return this.http.get<any[]>(`https://localhost:44379/api/Retos?`);
@@ -35,10 +41,8 @@ export class RetosCreateServService {
   }
 
   getAllForUser(username : string) {
-    const params = new HttpParams()
-      .set('username', username)
-    return this.http.get<any[]>(`https://localhost:44379/api/Retos?` + params.toString());
+   console.log(`https://localhost:44379/api/Retos/` + 'busqueda/'+ username)
+    return this.http.get<any[]>(`https://localhost:44379/api/Retos/` + 'busqueda/'+ username);
   }
-
-
+  
 }

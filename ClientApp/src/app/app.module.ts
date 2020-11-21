@@ -95,7 +95,8 @@ import { CarrerasAdminList } from './list-carreras/list.carreras.component';
       { path: 'user-carreras-subs', component: UserCarrerasSub },
       { path: 'grupos-user', component: GruposUser },
       { path: 'user-modify', component: Usermodify },
-      { path: 'list-carreras', component: CarrerasAdminList }
+      { path: 'list-carreras', component: CarrerasAdminList },
+      { path: 'user-retos-subs', component: UserRetosSubsComponent }
     ])
   ],
   providers: [],

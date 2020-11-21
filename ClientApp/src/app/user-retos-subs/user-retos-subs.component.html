@@ -4,8 +4,10 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
     <div class="row">
-        <section class="card col-3" *ngFor="let reto of retosdisponibles; let i = index">
-            <div class="card hovercard">
+        <section class="card hovercard col-12" *ngFor="let reto of retosdisponibles; let i = index">         
+            <div class="avatar">
+                    <img [src]="['https://localhost:8080/imgpats/' + retosdisponibles[i].logo]" alt="">
+                </div>                
                 <div class="info">
                     <div class="desc">Reto: {{retosdisponibles[i].nombrereto}}</div>
                     <div class="desc">Periodo inicio: {{retosdisponibles[i].periodoinicio}}</div>
@@ -17,8 +19,7 @@
                 </div>
                     <button *ngIf="!retosdisponibles[i].suscrito" class="buttons" (click)="incribirse(retosdisponibles[i])">Inscribirse</button>
                     <button *ngIf="retosdisponibles[i].suscrito" class="buttons" >Inscrito</button>
-            </div>
-        </section>
-    </div>
-   
+                </section> 
+            </div>  
 </div>
+        

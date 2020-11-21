@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService, newCarreraService } from '../services';
-import { InscRetoServService } from '../services/insc-reto-serv.service';
 import { RetosCreateServService } from './../services/retos-create-serv.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class UserRetosSubsComponent implements OnInit {
 
   user: any = [];
   retosdisponibles = [];
-  constructor(private userService: UserService,private retoservice: InscRetoServService, private router: Router) { }
+  constructor(private userService: UserService,private retoservice: RetosCreateServService, private router: Router) { }
 
   ngOnInit(): void {
     this.user = this.userService.userLogged;

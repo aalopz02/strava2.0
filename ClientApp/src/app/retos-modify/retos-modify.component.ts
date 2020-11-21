@@ -23,9 +23,7 @@ export class RetosModifyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("gg");
     console.log(this.name);
-    console.log("gg");
    
     this.modifyService.bringReto(this.name).subscribe(data =>{
       console.log(data);
@@ -35,9 +33,6 @@ export class RetosModifyComponent implements OnInit {
       var inputDate2 = new Date(data.periodo_final);
       var formattedDate2 = inputDate2.getFullYear()+'-'+ ('0' + inputDate2.getMonth()).slice(-2)+'-'+ ('0' + inputDate2.getDate()).slice(-2);
       this.retoForm = this.formB.group({
-        
-
-          nombrereto: [data.nombrereto],
           d1 : [formattedDate1],
           d2 : [formattedDate2],
           tipoactividad : [''],
@@ -62,7 +57,7 @@ export class RetosModifyComponent implements OnInit {
 
   onSubmit(formValue: any) {
     
-    this.modifyService.modificarReto(this.retoForm.value)
+    this.modifyService.modificarReto(this.retoForm.value,this.name)
     .subscribe(
       data => {
           
@@ -70,6 +65,7 @@ export class RetosModifyComponent implements OnInit {
       error => {
           
       });
+      this.router.navigateByUrl('');
   }
 
 }

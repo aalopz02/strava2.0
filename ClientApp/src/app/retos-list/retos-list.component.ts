@@ -20,8 +20,16 @@ export class RetosListComponent implements OnInit {
     });
   }
 
+  changeLocation(locationData) {
+    const currentRoute = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentRoute]);
+    }); 
+}
+
   delete(nombreReto:string){
     this.delService.delete(nombreReto);
+    this.changeLocation(this.router);
   }
 
   modify(nombreReto:string){

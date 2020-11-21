@@ -58,10 +58,25 @@ export class UserSearch implements OnInit {
           this.error = error;
       });
   }
+
   seguir(event, item){
     this.service.seguirUsuario(item["nombreusuario"],this.user["nombreusuario"]);
-    this.router.navigate(['/search-users']);
+    this.changeLocation(this.router);
+    this.user = this.service.userLogged;
+    console.log("Usuario:");
+    console.log(this.user);
+    this.service.getAll(this.registerForm.value,this.user).subscribe(data =>{
+      this.resultados=data;
+      console.log(this.resultados);
+    });
   }
+
+  changeLocation(locationData) {
+    const currentRoute = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentRoute]);
+    }); 
+}
 
   siguiendo(result : boolean){
     if (result){ 

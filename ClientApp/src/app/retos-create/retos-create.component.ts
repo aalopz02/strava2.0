@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { RetosCreateServService } from './../services/retos-create-serv.service';
 import { patrocinadorService } from './../services/patrocinadores.service';
 import { tipoActividadService } from './../services/tipoActividad.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-retos-create',
@@ -15,7 +16,9 @@ export class RetosCreateComponent implements OnInit {
   patrocinadores = [];
   tipoactividad  = [];
   patrocinadorId = 0;
-  constructor(private formB: FormBuilder, private createService: RetosCreateServService,   private serviceTipoAct: tipoActividadService ,private servicePat : patrocinadorService) { }
+  constructor(private formB: FormBuilder, private createService: RetosCreateServService,  
+     private serviceTipoAct: tipoActividadService ,private servicePat : patrocinadorService,
+     private router: Router) { }
 
   ngOnInit(): void {
 
@@ -52,6 +55,7 @@ export class RetosCreateComponent implements OnInit {
       error => {
           
       });
+      this.router.navigateByUrl('/list-reto');
   }
     
 }

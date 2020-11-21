@@ -12,11 +12,10 @@ export class RetosModifServService {
 
   constructor(private http: HttpClient) { }
 
-  modificarReto(reto : reto) {
+  modificarReto(reto : reto,nombrereto: string) {
     const Base_url = 'https://localhost:44379/api/Cliente?';
-    console.log(patrocinador); 
     const params = new HttpParams()
-    .set('nombreReto', reto.nombrereto)
+    .set('nombreReto', nombrereto)
     .set('d1', reto.d1)
     .set('d2', reto.d2)
     .set('Tipoact', reto.tipoactividad)
@@ -24,19 +23,11 @@ export class RetosModifServService {
     .set('Privacidad', reto.privacidad.toString())
     .set('patrocinadores', reto.patrocinadorId.toString())
     
-    console.log(reto); 
-    console.log(`https://localhost:44379/api/Retos?` + params, reto); 
-    
     return this.http.put(`https://localhost:44379/api/Retos?` + params, reto);
   }
 
   bringReto(nombreReto:string): Observable<any>{
-    var json;
-    console.log("fdsfs");
     const Base_url = 'https://localhost:44379/api/Retos/';
-
-   
-
     return this.http.get(Base_url + nombreReto);
 }
 

@@ -20,10 +20,20 @@ export class GruposListComponent implements OnInit {
     });
   }
 
+  changeLocation(locationData) {
+    const currentRoute = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentRoute]);
+    }); 
+}
+
   delete(nombreGrupo:string,nombreusuario:string){
     console.log("dsad");
     console.log(nombreGrupo);
     this.delService.delete(nombreGrupo,nombreusuario);
+    
+    this.changeLocation(this.router);
+    
   }
 
   modify(nombreGrupo:string,nombreusuario:string){

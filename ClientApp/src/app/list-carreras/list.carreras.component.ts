@@ -22,9 +22,18 @@ export class CarrerasAdminList implements OnInit {
   }
 
   delete(carrera : any){
-    console.log(carrera)
-    this.service.delete(carrera);
+    this.service.delete(carrera).subscribe(() => console.log("deleted"));
+
+    this.changeLocation(this.router)
+    
   }
+
+  changeLocation(locationData) {
+    const currentRoute = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentRoute]);
+    }); 
+}
 
   modify(carrera : any){
     this.service.setCarrera(carrera);

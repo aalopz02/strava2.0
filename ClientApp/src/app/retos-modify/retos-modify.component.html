@@ -9,23 +9,19 @@
   </nav>
   <div class="container-sm pt-3">
     <div class="jumbotron">
-      <h1 class="display-5" align="center">Modificar un Reto</h1>
+      <h1 class="display-5" align="center">Modificar {{name}}</h1>
       
       <form [formGroup]="retoForm" (submit)="onSubmit()" >
-            <div class="col-md-6 mb-3 mx-auto"  >
-              <label class="labelfont" for="name">Nombre del Reto:</label>
-              <input type="text" class="form-control"  formControlName="nombrereto" id="nombrereto" #name required>
-            </div>
-            <div class="col-md-6 mb-3 mx-auto">
+        <div class="col-md-6 mb-3 mx-auto">
               <div class="container">
-              <label class="labelfont" for="lastname1">Periodo en el que esta disponible:</label>
+              <label class="labelfont" for="d1">Periodo en el que esta disponible:</label>
               <br>
-              <label class="labelfont" for="lastname1">Inicio:</label>
-        <input class="form-control" formControlName="d1" type="date"  id="d1" required>
-        <label class="labelfont" for="lastname1">Final:</label>
-        <input class="form-control" formControlName="d2" type="date"  id="d2" required>
-      </div>
-            </div>
+              <label class="labelfont" for="d1">Inicio:</label>
+              <input class="form-control" formControlName="d1" type="date"  id="d1" required>
+              <label class="labelfont" for="d2">Final:</label>
+              <input class="form-control" formControlName="d2" type="date"  id="d2" required>
+        </div>
+    </div>
             <div  class="col-md-6 mb-3 mx-auto">
               <label for="tipoactividad">Tipo de actividad </label>
                   <select formControlName="tipoactividad" id="tipoactividad">
@@ -35,7 +31,7 @@
                    </select>
           </div>
             <div class="col-md-6 mb-3 mx-auto">
-              <label class="labelfont" for="lastname2">Tipo :</label>
+              <label class="labelfont" for="tipo">Tipo :</label>
               <select class="form-control" formControlName="tipo" >
                 <option value="RetoFondo">Reto de fondo</option>
                 <option value="Altitud">Altitud</option>
@@ -56,17 +52,13 @@
                       </option>
                    </select>
           </div>
-  
            <div class="col-md-6 mb-3 mx-auto" align="center">
             <div class="form-group">
-           <button class="btn btn-primary  mx-auto" type="submit" align="center">Registrar reto</button>
+           <button class="btn btn-primary  mx-auto" type="submit" align="center">Modificar reto</button>
           </div>
           </div>
-
         </form>
         </div>
-
-      
   </div>
  </div>
 

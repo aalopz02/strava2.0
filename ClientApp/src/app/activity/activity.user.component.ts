@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { UserService } from '../services';
 import { tipoActividadService } from '../services';
 import { actividadesService } from '../services/actividades.service';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ export class ActivityUSer implements OnInit {
   file:any;
   rutastring : string | ArrayBuffer;
   constructor( private formBuilder: FormBuilder,private service: actividadesService,
-    private serviceTipoAct: tipoActividadService,private userService: UserService){}
+    private serviceTipoAct: tipoActividadService,private userService: UserService,
+    private router: Router){}
   
 
   fileChanged(e) {
@@ -69,5 +71,6 @@ export class ActivityUSer implements OnInit {
       return;
     }
     this.service.crearActividad(this.registerForm.value,this.user,this.rutastring);
+    this.router.navigate(['/user-home']);
   }
 }

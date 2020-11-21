@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { User } from '../models/user.model';
 import { fromEvent, Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-modify',
@@ -16,7 +17,7 @@ export class Usermodify implements OnInit {
   userToSend: User = new User;
   user: any = [];
 
-  constructor(private formB: FormBuilder, private userService: UserService) {   }
+  constructor(private formB: FormBuilder, private userService: UserService,private router: Router) {   }
    ngOnInit() {
     this.user = this.userService.userLogged;
     console.log("Usuario:");
@@ -52,7 +53,7 @@ export class Usermodify implements OnInit {
     this.userToSend = Object.assign(this.userToSend, formValue);
     console.log(this.userToSend);
     this.userService.modifyUser(this.userToSend,this.user,this.imagenCodificada);
-    
+    this.router.navigate(['/login']);
    }
 
 }

@@ -62,7 +62,8 @@ import { CarrerasAdminList } from './list-carreras/list.carreras.component';
     NavMenuUser,
     GruposUser,
     Usermodify,
-    CarrerasAdminList
+    CarrerasAdminList,
+    UserRetosSubsComponent
   ],
   imports: [
 

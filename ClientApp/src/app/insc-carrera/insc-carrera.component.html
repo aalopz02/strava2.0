@@ -20,9 +20,11 @@
             <span>{{file ? file.name : 'Arrastre el archivo' }}</span>
             <input class="file-input" formControlName="recibo" type="file" (change)="onUploadImage($event)">
         </div>
-
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP4uhFoFputXsRIVCA5Oaqi5b_x3DyOwg&callback=initMap"></script>
+        <div id="mapa" style="height: 500px;width: 100%;"></div>  
         <div class="col-md-6 mb-3 mx-auto" align="center">
-          <button class="btn btn-primary  mx-auto" type="submit" align="center">Inscribirse en la Carrera</button>
+
+        <button class="btn btn-primary  mx-auto" type="submit" align="center">Inscribirse en la Carrera</button>
          </div>
         </form>
         </div>

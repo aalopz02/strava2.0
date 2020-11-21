@@ -3,7 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 //import { AgmCoreModule } from '@agm/core';
 import { actividadesService } from '../services/actividades.service';
 import { parseString } from 'xml2js';
-
+import { HttpClient } from '@angular/common/http';
 /*
 @NgModule({
   imports:[
@@ -29,9 +29,9 @@ export class UserHomeComponent implements OnInit {
   userimage = '';
   actividades = [];
   maps = [];
-  ActivityCoordinates: any = [];
   userpath: any = null;
-  constructor(private userService: UserService,private actservice: actividadesService) { }
+  constructor(private userService: UserService,private actservice: actividadesService,
+              private http: HttpClient) { }
 
   ngOnInit(): void {
     this.user = this.userService.userLogged;
@@ -45,17 +45,14 @@ export class UserHomeComponent implements OnInit {
     });
     for (let i = 0; i < this.actividades.length; i++) {
       this.maps.concat();
-      this.loadMap(i);
+      console.log(i)
     }
   }
 
   loadMap(data: number) {
-    // create a new map by passing HTMLElement
     var map: any = null;
     const mapEle: HTMLElement = document.getElementById(data.toString());
-    // create LatLng objectlat="9.8776180" lon="-83.9376610"
     const myLatLng = {lat: 9.8776180, lng: -83.9376610};
-    // create map
     map = new google.maps.Map(mapEle, {
       center: myLatLng,
       zoom: 12
@@ -63,38 +60,44 @@ export class UserHomeComponent implements OnInit {
     google.maps.event.addListenerOnce(map, 'idle', () => {
       mapEle.classList.add('show-map');
     });
+    var actividad = this.actividades[data];
+    console.log(actividad);
+    var ruta = actividad["rutagpx"];
+    console.log(ruta);
+    var filedata : any;
+    this.http.get("https://localhost:8080/reporutas/" + ruta,{ responseType: 'text' as 'json'}).subscribe(filedata => {
+      console.log("read done");
+      this.loadGpxFromDevice(filedata,map);
+    });
   }
-/*
-  loadGpxFromDevice(file) {
-    let fileReader = new FileReader();
-    fileReader.onload = (e) => {
-      parseString(fileReader.result, { explicitArray: true }, (result) => {
+
+  loadGpxFromDevice(file, map : any) {
+    var actividad : any = [];
+    parseString(file, { explicitArray: true }, (error, result) => {
+          console.log(result);
           const data = result.gpx.trk[0].trkseg[0].trkpt;
           data.forEach(element => {
             const coords = {
               lat: +element.$.lat,
               lng: +element.$.lon
             }
-            this.ActivityCoordinates.push(coords);
+            actividad.push(coords);
           });
-          this.setPathInMap();
+          this.setPathInMap(actividad,map);
       });
-    }
-    fileReader.readAsText(file);
   }
-  */
-/*
-  setPathInMap(){
+
+  setPathInMap(actividad : any, map : any){
     this.userpath = new google.maps.Polyline({
-      path: this.ActivityCoordinates,
+      path: actividad,
       geodesic: true,
       strokeColor: "#FF0000",
       strokeOpacity: 1.0,
       strokeWeight: 2,
     }); 
-    this.map.setCenter(new google.maps.LatLng(this.ActivityCoordinates[0].lat, this.ActivityCoordinates[0].lng));
-    this.userpath.setMap(this.map);  
-    //this.distancia = Math.round(google.maps.geometry.spherical.computeLength(this.userpath.getPath()));
+    map.setCenter(new google.maps.LatLng(actividad[0].lat, actividad[0].lng));
+    this.userpath.setMap(map);  
+   
   }
-  */
+  
 }

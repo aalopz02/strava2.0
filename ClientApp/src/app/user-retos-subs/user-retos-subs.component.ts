@@ -13,7 +13,8 @@ export class UserRetosSubsComponent implements OnInit {
 
   user: any = [];
   retosdisponibles = [];
-  constructor(private userService: UserService,private retoservice: InscRetoServService, private router: Router) { }
+  constructor(private userService: UserService,private retoservice: InscRetoServService,
+     private router: Router) { }
 
   ngOnInit(): void {
     this.user = this.userService.userLogged;

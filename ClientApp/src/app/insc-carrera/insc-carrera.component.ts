@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InscCarreraServService } from './../services/insc-carrera-serv.service';
 import { fromEvent, Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
@@ -31,9 +31,9 @@ export class InscCarreraComponent implements OnInit {
   ngOnInit() {
     this.user = this.userService.userLogged;
     this.insccarreraForm = this.formB.group({
-      nombrecarrera: this.carreras.carrera.nombrecarrera,
-      nombreusuario: this.user['nombreusuario'],
-      recibo :''
+      nombrecarrera: [this.carreras.carrera.nombrecarrera,Validators.required],
+      nombreusuario: [this.user['nombreusuario'],Validators.required],
+      recibo :['',Validators.required]
     });
     this.loadMap(this.carreras.carrera.ruta);
   }
@@ -94,12 +94,16 @@ export class InscCarreraComponent implements OnInit {
         });
     }
   }
+  
   imageToBase64(fileReader: FileReader, fileToRead: File): Observable<string> {
     fileReader.readAsDataURL(fileToRead);
     return fromEvent(fileReader, 'load').pipe(pluck('currentTarget', 'result'));
   }
 
   onSubmit(formValue: any) {
+    if (this.imagenCodificada == null){
+      return;
+    }
     this.createService.crearInscReto(formValue.nombreusuario,formValue.nombrecarrera,this.imagenCodificada);
     this.router.navigate(['/user-home']);
   }

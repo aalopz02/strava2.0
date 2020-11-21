@@ -1,18 +1,9 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-//import { AgmCoreModule } from '@agm/core';
 import { actividadesService } from '../services/actividades.service';
 import { parseString } from 'xml2js';
 import { HttpClient } from '@angular/common/http';
-/*
-@NgModule({
-  imports:[
-    AgmCoreModule.forRoot({
-      apiKey:"AIzaSyDXS_5WlYG39gz8Ql2o9Z5ih9NskSwyym8"
-    })
-  ]
-})
-*/
+
 
 declare var google;
 

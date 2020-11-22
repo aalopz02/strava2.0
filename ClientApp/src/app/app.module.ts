@@ -32,7 +32,9 @@ import { NavMenuUser } from './navbar-user/navbar.user.component';
 import { GruposUser } from './grupos-user/user.grupos.subs.component';
 import { Usermodify } from './user-modify/user.modify.component';
 import { CarrerasAdminList } from './list-carreras/list.carreras.component';
-
+/**
+ * Ng module
+ */
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +67,7 @@ import { CarrerasAdminList } from './list-carreras/list.carreras.component';
     CarrerasAdminList,
     UserRetosSubsComponent
   ],
+  
   imports: [
 
   BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 import { UserService } from '../services/user.service';
 import { UserSearchModel } from '../models/usuario.search.model';
 import { Router } from '@angular/router';
-
+/**
+ * Ng module
+ */
 @NgModule({
   imports: [
   FormGroup
@@ -19,15 +21,26 @@ import { Router } from '@angular/router';
   templateUrl: './user.search.component.html',
   styleUrls: ['./user.search.component.css']
 })
+// Component para buscar usuarios
 export class UserSearch implements OnInit {
+  // Form y valores de busqueda
   registerForm: FormGroup;
   busqueda: string;
   error: string;
   resultados = [];
   user: any = [];
+  /**
+   * Creates an instance of user search.
+   * @param formBuilder 
+   * @param service 
+   * @param router 
+   */
   constructor( private formBuilder: FormBuilder,private service: UserService,private router: Router){  }
-
-  ngOnInit() {
+/**
+ * on init
+ */
+ngOnInit() {
+  // Inicializa form
     this.registerForm = this.formBuilder.group({
       busqueda: ['all']
   });
@@ -35,6 +48,7 @@ export class UserSearch implements OnInit {
   this.user = this.service.userLogged;
   console.log("Usuario:");
   console.log(this.user);
+  // Get de usuarios
   this.service.getAll(this.registerForm.value,this.user).subscribe(data =>{
     this.resultados=data;
     console.log(this.resultados[0]);
@@ -43,8 +57,11 @@ export class UserSearch implements OnInit {
   }
 
   get f() { return this.registerForm.controls; }
-
-  onSubmit() {
+/**
+ * Determines whether submit on
+ * Envia form de registro
+ */
+onSubmit() {
     if (this.registerForm.invalid) {
       return;
     }
@@ -58,8 +75,12 @@ export class UserSearch implements OnInit {
           this.error = error;
       });
   }
-
-  seguir(event, item){
+/**
+ * Seguir usuario 
+ * @param event 
+ * @param item del usuario a seguir
+ */
+seguir(event, item){
     this.service.seguirUsuario(item["nombreusuario"],this.user["nombreusuario"]);
     
     this.user = this.service.userLogged;
@@ -71,8 +92,13 @@ export class UserSearch implements OnInit {
     });
     this.changeLocation(this.router);
   }
-
-  noseguir(event, item){
+  
+/**
+ * No seguir usuario
+ * @param event 
+ * @param item del usuario a dejar de seguir
+ */
+noseguir(event, item){
     this.service.deleteseguir(item["nombreusuario"],this.user["nombreusuario"]);
     this.user = this.service.userLogged;
     console.log("Usuario:");
@@ -85,14 +111,22 @@ export class UserSearch implements OnInit {
     this.changeLocation(this.router);
   }
 
-  changeLocation(locationData) {
+/**
+ * Cambiar de ubicacion
+ * @param locationData 
+ */
+changeLocation(locationData) {
     const currentRoute = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this.router.navigate([currentRoute]);
     }); 
 }
-
-  siguiendo(result : boolean){
+/**
+ * Ver si se esta siguiendo
+ * @param result 
+ * @returns  true or false dependiendo de si se sigue
+ */
+siguiendo(result : boolean){
     if (result){ 
       return true;
     } 

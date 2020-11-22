@@ -1,3 +1,6 @@
+/**
+ * Actividad view
+ */
 export class ActividadView {
 
     nombreusuario: string;

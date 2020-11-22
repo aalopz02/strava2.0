@@ -5,14 +5,23 @@ import { grupo } from './../models/grupo.model';
 @Injectable({
   providedIn: 'root'
 })
+// Servicio para crear un grupo
 export class GruposCreateService {
 
   constructor(private http: HttpClient) { }
 
-
-  getAll() {
+/**
+ * Gets all grupos
+ * @returns grupos  
+ */
+getAll() {
     return this.http.get<any[]>(`https://localhost:44379/api/Grupos?`);
   }
+  /**
+   * Crear grupo
+   * @param grupo a crear
+   * @returns  
+   */
   crearGrupo(grupo: grupo) {
     const Base_url = 'https://localhost:44379/api/Cliente?';
     const params = new HttpParams()

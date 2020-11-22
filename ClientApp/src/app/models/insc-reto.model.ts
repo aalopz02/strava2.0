@@ -1,3 +1,6 @@
+/**
+ * Insc reto
+ */
 export class inscReto {
   nombrereto: string;
   nombreusuario:string;

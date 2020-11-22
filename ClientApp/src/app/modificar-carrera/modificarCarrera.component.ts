@@ -13,18 +13,23 @@ import { categoriaService } from '../services/categoria.service';
 import { categoria } from '../models/categoria.model';
 import { Router } from '@angular/router';
 
+/**
+ * Ng module
+ */
 @NgModule({
   imports: [
   FormGroup
   ]
 })
 
+
 @Component({
   selector: 'app-modificar-carrera-component',
   templateUrl: './modificarCarrera.component.html'
 })
-
+// Component para modificar carrera
 export class modificarCarreraComponent implements OnInit {
+  //Form, carreras y componentes
   registerForm: FormGroup;
   error: string;
   tipoactividad  = [];
@@ -35,7 +40,15 @@ export class modificarCarreraComponent implements OnInit {
   carrera : any;
   file:any;
   rutastring : string | ArrayBuffer;
-  
+  /**
+   * Creates an instance of modificar carrera component.
+   * @param formBuilder 
+   * @param service 
+   * @param serviceTipoAct 
+   * @param servicePat 
+   * @param serviceCat 
+   * @param router 
+   */
   constructor( private formBuilder: FormBuilder,private service: newCarreraService,
     private serviceTipoAct: tipoActividadService,
     private servicePat : patrocinadorService,
@@ -43,9 +56,13 @@ export class modificarCarreraComponent implements OnInit {
     private router: Router
     ){}
 
+  /**
+   * on init
+   */
   ngOnInit() {
     this.carrera = this.service.carrera;
     console.log(this.carrera);
+    // Cargar el form de datos
     this.registerForm = this.formBuilder.group({
       costo: [this.carrera.costo],
       cuentapago: [this.carrera.cuentapago],
@@ -59,25 +76,35 @@ export class modificarCarreraComponent implements OnInit {
       categoriaId : ['']
 
   });
+  // Obtener tipo de actividad
   this.serviceTipoAct.getAll().subscribe(data =>{
     this.tipoactividad=data;
     console.log(this.tipoactividad[0]);
   });
+  // Obtener categorias
   this.serviceCat.getAll().subscribe(data =>{
     this.categorias=data;
     console.log(this.categorias[0]);
   });
+  // Obtener patrocinadores
   this.servicePat.getAll().subscribe(data =>{
     this.patrocinadores=data;
     console.log(this.patrocinadores[0]);
   });
   }
-
-  fileChanged(e) {
+/**
+ * Detectar cambio en archivo
+ * @param e 
+ */
+fileChanged(e) {
     this.file = e.target.files[0];
     this.filetostring(this.file);
 }
 
+/**
+ * Archivo a string
+ * @param file a convertir
+ */
 filetostring(file) {
   let fileReader = new FileReader();
   fileReader.onload = (e) => {
@@ -89,6 +116,10 @@ filetostring(file) {
 
   get f() { return this.registerForm.controls; }
 
+  /**
+   * Determines whether submit on
+   * De Form de carrera
+   */
   onSubmit() {
     if (this.registerForm.invalid) {
       return;

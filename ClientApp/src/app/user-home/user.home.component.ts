@@ -6,7 +6,9 @@ import { HttpClient } from '@angular/common/http';
 
 
 declare var google;
-
+/**
+ * Component
+ */
 @Component({
   selector: 'app-user-home',
   templateUrl: './user.home.component.html',
@@ -23,14 +25,16 @@ export class UserHomeComponent implements OnInit {
   userpath: any = null;
   constructor(private userService: UserService,private actservice: actividadesService,
               private http: HttpClient) { }
-
-  ngOnInit(): void {
+/**
+ * on init
+ */
+ngOnInit(): void {
     this.user = this.userService.userLogged;
     this.userimage = this.baseUrl + this.user.imagenperfil;
     
     console.log("Usuario:");
     console.log(this.user);
-
+// Obtener actividades
     this.actservice.getAll(this.user).subscribe(data =>{
       this.actividades=data;
       console.log(data);
@@ -42,8 +46,11 @@ export class UserHomeComponent implements OnInit {
       console.log(i)
     }
   }
-
-  loadMap(data: number) {
+/**
+ * Cargar mapa
+ * @param data para cargar mapa
+ */
+loadMap(data: number) {
     var map: any = null;
     const mapEle: HTMLElement = document.getElementById(data.toString());
     const myLatLng = {lat: 9.8776180, lng: -83.9376610};
@@ -64,8 +71,12 @@ export class UserHomeComponent implements OnInit {
       this.loadGpxFromDevice(filedata,map);
     });
   }
-
-  loadGpxFromDevice(file, map : any) {
+/**
+ * Cargar gpx del disp
+ * @param file archivo
+ * @param map a cargar
+ */
+loadGpxFromDevice(file, map : any) {
     var actividad : any = [];
     parseString(file, { explicitArray: true }, (error, result) => {
           console.log(result);
@@ -80,8 +91,12 @@ export class UserHomeComponent implements OnInit {
           this.setPathInMap(actividad,map);
       });
   }
-
-  setPathInMap(actividad : any, map : any){
+/**
+ * Setea path en el mapa
+ * @param actividad para obtener path
+ * @param map a setear
+ */
+setPathInMap(actividad : any, map : any){
     this.userpath = new google.maps.Polyline({
       path: actividad,
       geodesic: true,

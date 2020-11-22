@@ -1,3 +1,6 @@
+/**
+ * Actividad usuario
+ */
 export class ActividadUsuario {
 
     fecha: string;

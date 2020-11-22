@@ -11,7 +11,9 @@ import { actividad } from '../models/actividad.model';
 import { patrocinadorService } from '../services/patrocinadores.service';
 import { categoriaService } from '../services/categoria.service';
 import { Router } from '@angular/router';
-
+/**
+ * Ng module
+ */
 @NgModule({
   imports: [
   FormGroup
@@ -22,7 +24,9 @@ import { Router } from '@angular/router';
   selector: 'app-nueva-carrera-component',
   templateUrl: './newCarrera.component.html'
 })
+//Component para agregar una carrera
 export class CarreraComponent implements OnInit {
+  // Form y componentes
   registerForm: FormGroup;
   error: string;
   tipoactividad  = [];
@@ -32,15 +36,25 @@ export class CarreraComponent implements OnInit {
   categoriaId = 0;
   file:any;
   rutastring : string | ArrayBuffer;
-
-  constructor( private formBuilder: FormBuilder,private service: newCarreraService,
+/**
+ * Creates an instance of carrera component.
+ * @param formBuilder 
+ * @param service 
+ * @param serviceTipoAct 
+ * @param servicePat 
+ * @param serviceCat 
+ * @param router 
+ */
+constructor( private formBuilder: FormBuilder,private service: newCarreraService,
     private serviceTipoAct: tipoActividadService,
     private servicePat : patrocinadorService,
     private serviceCat : categoriaService,
     private router: Router){}
-
-  ngOnInit() {
-
+/**
+ * on init
+ */
+ngOnInit() {
+// Cargar datos al form
     this.registerForm = this.formBuilder.group({
       nombrecarrera: ['', Validators.required],
       costo: ['', Validators.required],
@@ -55,25 +69,35 @@ export class CarreraComponent implements OnInit {
       categoriaId : ['']
 
   });
+  // Obtener actividades
   this.serviceTipoAct.getAll().subscribe(data =>{
     this.tipoactividad=data;
     console.log(this.tipoactividad[0]);
   });
+  // Obtener categoria
   this.serviceCat.getAll().subscribe(data =>{
     this.categorias=data;
     console.log(this.categorias[0]);
   });
+  // Obtener patrocinadores
   this.servicePat.getAll().subscribe(data =>{
     this.patrocinadores=data;
     console.log(this.patrocinadores[0]);
   });
   }
 
+  /**
+   * Cambio en archivo
+   * @param e 
+   */
   fileChanged(e) {
     this.file = e.target.files[0];
     this.filetostring(this.file);
 }
-
+/**
+ * Convertir archivo a string
+ * @param file a convertir a string
+ */
 filetostring(file) {
   let fileReader = new FileReader();
   fileReader.onload = (e) => {
@@ -85,8 +109,11 @@ filetostring(file) {
 
 
   get f() { return this.registerForm.controls; }
-
-  onSubmit() {
+  
+/**
+ * Determines whether submit on de carrera
+ */
+onSubmit() {
     if (this.registerForm.invalid) {
       return;
     }

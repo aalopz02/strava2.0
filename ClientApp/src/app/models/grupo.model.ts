@@ -1,3 +1,6 @@
+/**
+ * Grupo
+ */
 export class grupo {
   nombregrupo: string;
   nombreusuario:string;

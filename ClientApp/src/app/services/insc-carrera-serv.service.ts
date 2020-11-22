@@ -9,11 +9,20 @@ import { stringify } from 'querystring';
 @Injectable({
   providedIn: 'root'
 })
+// Servicio de inscribir carrera
 export class InscCarreraServService {
-
-  constructor(private http: HttpClient) { }
-
-  crearInscReto(nombreusuario : string,nombrecarrera : string, img : string | ArrayBuffer) {
+/**
+ * Creates an instance of insc carrera serv service.
+ * @param http 
+ */
+constructor(private http: HttpClient) { }
+/**
+ * Crear inscripcion a reto
+ * @param nombreusuario a insc
+ * @param nombrecarrera a inscribirse
+ * @param img recibo
+ */
+crearInscReto(nombreusuario : string,nombrecarrera : string, img : string | ArrayBuffer) {
     const Base_url = 'https://localhost:44379/api/InscripcionesCarrera?';
    
     const params = new HttpParams()

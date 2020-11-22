@@ -1,18 +1,25 @@
 import { Component } from '@angular/core';
-
+/**
+ * Component
+ */
 @Component({
   selector: 'app-navbar-user',
   templateUrl: './navbar.user.component.html',
   styleUrls: ['./navbar.user.component.css']
 })
+// Componet del nav menu de usuario
 export class NavMenuUser {
   isExpanded = false;
-
-  collapse() {
+/**
+ * Collapses nav menu user
+ */
+collapse() {
     this.isExpanded = false;
   }
-
-  toggle() {
+/**
+ * Toggles nav menu user
+ */
+toggle() {
     this.isExpanded = !this.isExpanded;
   }
 }

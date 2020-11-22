@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpParams } from '@angular/common/http';
-
+/**
+ * Injectable
+ */
 @Injectable({
   providedIn: 'root'
 })
+// Servicio para eliminar retos
 export class RetosDelServService {
-
-  constructor(private http: HttpClient) { }
+/**
+ * Creates an instance of retos del serv service.
+ * @param http 
+ */
+constructor(private http: HttpClient) { }
 
  /*  delete(nombrereto) {
     const Base_url = 'https://localhost:44379/api/Retos?';
@@ -25,6 +31,11 @@ export class RetosDelServService {
     });
 
   } */
+  /**
+   * Elimina retos
+   * @param nombrereto a eliminar
+   * @returns  
+   */
   delete(nombrereto) {
     console.log(nombrereto);
     console.log(`https://localhost:44379/api/Retos/`+ nombrereto);

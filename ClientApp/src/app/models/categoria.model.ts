@@ -1,3 +1,6 @@
+/**
+ * Categoria
+ */
 export class categoria {
     idcat : number
     nombre : string;

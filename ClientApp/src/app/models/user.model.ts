@@ -1,3 +1,6 @@
+/**
+ * User
+ */
 export class User {
 
     fname: string;

@@ -6,18 +6,29 @@ import { fromEvent, Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+/**
+ * Component
+ */
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+// Component de registrarse
 export class RegisterComponent implements OnInit {
+  // Imagen y form
   imagenCodificada : string | ArrayBuffer;
   registerUserForm: FormGroup;
   userToSend: User = new User;
   
-  
+  /**
+   * Creates an instance of register component.
+   * @param formB 
+   * @param userService 
+   * @param router 
+   */
   constructor(private formB: FormBuilder, private userService: UserService,private router: Router) {
+    // Cargar datos vacios
     this.registerUserForm = this.formB.group({
       fname: '',
       mname: '',
@@ -30,8 +41,11 @@ export class RegisterComponent implements OnInit {
     });
 
    }
-
-   onUploadImage(event) {
+/**
+ * Determines whether upload image on
+ * @param event 
+ */
+onUploadImage(event) {
     if (event.target.files.length > 0) {
       const fileReader = new FileReader();
       let imageToUpload = event.target.files.item(0);
@@ -41,13 +55,21 @@ export class RegisterComponent implements OnInit {
         });
     }
   }
-
-  imageToBase64(fileReader: FileReader, fileToRead: File): Observable<string> {
+/**
+ * Imagen a base64
+ * @param fileReader 
+ * @param fileToRead imagen a leer
+ * @returns imagen base64 
+ */
+imageToBase64(fileReader: FileReader, fileToRead: File): Observable<string> {
     fileReader.readAsDataURL(fileToRead);
     return fromEvent(fileReader, 'load').pipe(pluck('currentTarget', 'result'));
   }
-
-   registerSendForm(formValue: any){
+/**
+ * Form a enviar de registro
+ * @param formValue 
+ */
+registerSendForm(formValue: any){
     this.userToSend = Object.assign(this.userToSend, formValue);
     console.log(this.userToSend);
     console.log(formValue.birthday.toString());

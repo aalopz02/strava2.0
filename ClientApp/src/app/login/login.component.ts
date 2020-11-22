@@ -5,11 +5,15 @@ import { UserService } from 'src/app/services/user.service';
 import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+/**
+ * Component
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+// Component para login
 export class LoginComponent implements OnInit {
   error: string;
   checkuserForm: FormGroup;
@@ -24,8 +28,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  checkUser(userdata: any){
+/**
+ * Checks user y constraseña
+ * @param userdata para login
+ */
+checkUser(userdata: any){
     
     this.userService.checkLogIn(userdata.username).subscribe(res => {
       

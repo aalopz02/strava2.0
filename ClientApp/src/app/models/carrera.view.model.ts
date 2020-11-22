@@ -1,3 +1,6 @@
+/**
+ * Carrera view
+ */
 export class carreraView {
 
     nombrecarrera: string;

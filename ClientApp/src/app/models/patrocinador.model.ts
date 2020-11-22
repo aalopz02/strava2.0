@@ -1,3 +1,6 @@
+/**
+ * Patrocinador
+ */
 export class patrocinador {
     idpat : number
     nombre : string;

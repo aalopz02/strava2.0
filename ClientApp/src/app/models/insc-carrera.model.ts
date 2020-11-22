@@ -1,3 +1,6 @@
+/**
+ * Insc carrera
+ */
 export class inscCarrera {
   nombrecarrera: string;
   nombreusuario:string;

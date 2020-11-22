@@ -1,3 +1,6 @@
+/**
+ * Carrera
+ */
 export class carrera {
 
     nombrecarrera: string;

@@ -1,3 +1,6 @@
+/**
+ * Actividad
+ */
 export class actividad {
 
     idact: number;

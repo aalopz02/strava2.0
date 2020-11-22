@@ -3,24 +3,43 @@ import { HttpClient } from '@angular/common/http';
 import { patrocinador } from './../models/patrocinador.model';
 import { reto } from './../models/reto.model';
 import { HttpParams } from '@angular/common/http';
-
+/**
+ * Injectable
+ */
 @Injectable({
   providedIn: 'root'
 })
+// Servicio para crear retos
 export class RetosCreateServService {
+  // Retos
   retos:  any = [];
+  /**
+   * Creates an instance of retos create serv service.
+   * @param http 
+   */
   constructor(private http: HttpClient) { 
   }
 
-  
+  /**
+   * Sets reto
+   * @param retoin 
+   */
   setReto(retoin : any){
     this.retos = retoin;
   }
  
-
-  getAll() {
+/**
+ * Gets all retos
+ * @returns  retos
+ */
+getAll() {
     return this.http.get<any[]>(`https://localhost:44379/api/Retos?`);
   }
+  /**
+   * Crear reto
+   * @param reto a crear
+   * @returns  
+   */
   crearReto(reto : reto) {
     const Base_url = 'https://localhost:44379/api/Cliente?';
     console.log(patrocinador); 
@@ -39,8 +58,12 @@ export class RetosCreateServService {
     console.log(`https://localhost:44379/api/Retos?` + params, reto); 
     return this.http.post(`https://localhost:44379/api/Retos?` + params, reto);
   }
-
-  getAllForUser(username : string) {
+/**
+ * Gets all retos para usuario
+ * @param username a buscar retos
+ * @returns  Retos para usuario
+ */
+getAllForUser(username : string) {
    console.log(`https://localhost:44379/api/Retos/` + 'busqueda/'+ username)
     return this.http.get<any[]>(`https://localhost:44379/api/Retos/` + 'busqueda/'+ username);
   }

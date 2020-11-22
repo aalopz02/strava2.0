@@ -1,3 +1,6 @@
+/**
+ * User search model
+ */
 export class UserSearchModel {
 
     fname: string;

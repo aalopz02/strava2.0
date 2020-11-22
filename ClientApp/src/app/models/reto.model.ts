@@ -1,3 +1,6 @@
+/**
+ * Reto
+ */
 export class reto {
   nombrereto: string;
   d1: string;

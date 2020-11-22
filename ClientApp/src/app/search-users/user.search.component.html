@@ -24,7 +24,7 @@
                         <div class="desc">Nacionalidad: {{resultados[i].nacionalidad}}</div>   
                     </div>
                         <button *ngIf="!siguiendo(resultados[i].siguiendo)" class="buttons" (click)="seguir($event, usuario)">Seguir</button>
-                        <button *ngIf="siguiendo(resultados[i].siguiendo)" class="buttonred" (click)="seguir($event, usuario)">Dejar de Seguir</button>
+                        <button *ngIf="siguiendo(resultados[i].siguiendo)" class="buttonred" (click)="noseguir($event, usuario)">Dejar de Seguir</button>
                 </div>
                 
             </section>

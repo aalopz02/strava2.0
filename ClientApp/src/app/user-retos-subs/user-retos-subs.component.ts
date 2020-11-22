@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService, newCarreraService } from '../services';
+import { InscRetoServService } from '../services/insc-reto-serv.service';
 import { RetosCreateServService } from './../services/retos-create-serv.service';
 
 @Component({

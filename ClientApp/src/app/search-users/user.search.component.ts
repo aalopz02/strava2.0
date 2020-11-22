@@ -61,7 +61,7 @@ export class UserSearch implements OnInit {
 
   seguir(event, item){
     this.service.seguirUsuario(item["nombreusuario"],this.user["nombreusuario"]);
-    this.changeLocation(this.router);
+    
     this.user = this.service.userLogged;
     console.log("Usuario:");
     console.log(this.user);
@@ -69,6 +69,20 @@ export class UserSearch implements OnInit {
       this.resultados=data;
       console.log(this.resultados);
     });
+    this.changeLocation(this.router);
+  }
+
+  noseguir(event, item){
+    this.service.deleteseguir(item["nombreusuario"],this.user["nombreusuario"]);
+    this.user = this.service.userLogged;
+    console.log("Usuario:");
+    console.log(this.user);
+
+    this.service.getAll(this.registerForm.value,this.user).subscribe(data =>{
+      this.resultados=data;
+      console.log(this.resultados);
+    });
+    this.changeLocation(this.router);
   }
 
   changeLocation(locationData) {

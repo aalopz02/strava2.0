@@ -9,8 +9,8 @@
                     <div class="desc">Nombre: {{gruposdisponibles[i].nombregrupo}}</div>
                     <div class="desc">Admin: {{gruposdisponibles[i].admin}}</div>
                 </div>
-                <button *ngIf="!gruposdisponibles[i].suscrito" class="button"> Inscribirse</button>
-                <button *ngIf="gruposdisponibles[i].suscrito" class="button"> Salirse</button>
+                <button *ngIf="!gruposdisponibles[i].suscrito" class="button" (click)="unirse(gruposdisponibles[i])"> Inscribirse</button>
+                <button *ngIf="gruposdisponibles[i].suscrito" class="button" (click)="salirse(gruposdisponibles[i])"> Salirse</button>
         </section> 
     </div>  
 </div>

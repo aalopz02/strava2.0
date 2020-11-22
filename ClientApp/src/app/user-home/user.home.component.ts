@@ -27,13 +27,16 @@ export class UserHomeComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userService.userLogged;
     this.userimage = this.baseUrl + this.user.imagenperfil;
+    
     console.log("Usuario:");
     console.log(this.user);
+
     this.actservice.getAll(this.user).subscribe(data =>{
       this.actividades=data;
       console.log(data);
       
     });
+
     for (let i = 0; i < this.actividades.length; i++) {
       this.maps.concat();
       console.log(i)

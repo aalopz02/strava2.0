@@ -15,6 +15,15 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+
+  deleteseguir(usarioaseguir: any, seguidor: any) {
+    const params = new HttpParams()
+    .set('usuarioaseguir', usarioaseguir)
+    .set('usuario', seguidor);
+    console.log(params.toString());
+    this.http.delete(this.urlSeguidores +'?' + params.toString()).subscribe()
+  }
+
   setUserLogged(user: any){
     this.userLogged = user;
   }

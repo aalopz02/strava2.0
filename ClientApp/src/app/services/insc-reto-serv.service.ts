@@ -5,6 +5,12 @@ import { inscReto } from './../models/insc-reto.model';
   providedIn: 'root'
 })
 export class InscRetoServService {
+  reto : any;
+
+  setReto(reto: any) {
+    this.reto = reto;
+  }
+
 
 
   constructor(private http: HttpClient) { }

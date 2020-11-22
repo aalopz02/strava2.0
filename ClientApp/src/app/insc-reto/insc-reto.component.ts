@@ -4,11 +4,13 @@ import { InscRetoServService } from './../services/insc-reto-serv.service';
 import { RetosCreateServService } from './../services/retos-create-serv.service';
 import { UserService } from './../services/user.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-insc-reto',
   templateUrl: './insc-reto.component.html',
   styleUrls: ['./insc-reto.component.css']
 })
+
 export class InscRetoComponent implements OnInit {
   user: any = [];
   nombrereto=[];
@@ -18,7 +20,7 @@ export class InscRetoComponent implements OnInit {
   ngOnInit() {
     this.user = this.userService.userLogged;
     this.inscretoForm = this.formB.group({
-      nombrereto:  this.retoservice.retos.nombrereto,
+      nombrereto:  this.retoservice.retos['nombrereto'],
       nombreusuario: this.user['nombreusuario']
   });
 

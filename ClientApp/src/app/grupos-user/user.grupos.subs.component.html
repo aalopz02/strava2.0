@@ -1,0 +1,17 @@
+<app-navbar-user></app-navbar-user>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <section class="card hovercard col-12" *ngFor="let grupo of gruposdisponibles; let i = index">
+                <div class="info">
+                    <div class="desc">Nombre: {{gruposdisponibles[i].nombregrupo}}</div>
+                    <div class="desc">Admin: {{gruposdisponibles[i].admin}}</div>
+                </div>
+                <button *ngIf="!gruposdisponibles[i].suscrito" class="button" (click)="unirse(gruposdisponibles[i])"> Inscribirse</button>
+                <button *ngIf="gruposdisponibles[i].suscrito" class="button" (click)="salirse(gruposdisponibles[i])"> Salirse</button>
+        </section> 
+    </div>  
+</div>
+

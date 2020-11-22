@@ -1,0 +1,25 @@
+<app-navbar-user></app-navbar-user>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <section class="card hovercard col-12" *ngFor="let reto of retosdisponibles; let i = index">         
+            <div class="avatar">
+                    <img [src]="['https://localhost:8080/imgpats/' + retosdisponibles[i].logo]" alt="">
+                </div>                
+                <div class="info">
+                    <div class="desc">Reto: {{retosdisponibles[i].nombrereto}}</div>
+                    <div class="desc">Periodo inicio: {{retosdisponibles[i].periodo_inicio}}</div>
+                    <div class="desc">Periodo final: {{retosdisponibles[i].periodo_final}}</div>
+                    <div class="desc">Tipo Actividad: {{retosdisponibles[i].tipoact}}</div>
+                    <div class="desc">Tipo: {{retosdisponibles[i].tipo}}</div>
+                    <div class="desc">Privacidad: {{retosdisponibles[i].privacidad}}</div>
+                    <div class="desc">Patrocina: {{retosdisponibles[i].patrocinador}}</div>
+                </div>
+                    <button *ngIf="!retosdisponibles[i].suscrito" class="buttons" (click)="incribirse(retosdisponibles[i])">Inscribirse</button>
+                    <button *ngIf="retosdisponibles[i].suscrito" class="buttons" >Inscrito</button>
+                </section> 
+            </div>  
+</div>
+        

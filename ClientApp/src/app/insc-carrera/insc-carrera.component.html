@@ -1,0 +1,33 @@
+<app-navbar-user></app-navbar-user>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="    background: url(https://nmcdn.io/bf48b01813174d27941cb0fe2037c1cb/2c5a9ef86b1f4a16b25b2e74984d488f/files/Running-process-sc1440x600-t1588625751.jpg?v=1b29169024)" class="page-holder bg-cover">
+ 
+  <div class="container-sm pt-3">
+    <div class="jumbotron">
+      <h1 class="display-5" align="center">Inscribirse en una Carrera</h1>
+      
+      <form [formGroup]="insccarreraForm" (submit)="onSubmit(insccarreraForm.value)" >
+        <div class="col-md-6 mb-3 mx-auto"  >
+          <label class="labelfont" for="name">Nombre Carrera:</label>
+          <input type="text" class="form-control"  formControlName="nombrecarrera" id="nombrecarrera" #name required>
+        </div>
+        <div class="col-md-6 mb-3 mx-auto"  >
+          <label class="labelfont" for="name">Nombre Usuario:</label>
+          <input type="text" class="form-control"  formControlName="nombreusuario" id="nombreusuario" #name required>
+        </div>
+          <div class="col-md-6 mb-3 mx-auto" align="center">
+            <span>Recibo: </span>
+            <span>{{file ? file.name : 'Arrastre el archivo' }}</span>
+            <input class="file-input" formControlName="recibo" type="file" (change)="onUploadImage($event)">
+        </div>
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP4uhFoFputXsRIVCA5Oaqi5b_x3DyOwg&callback=initMap"></script>
+        <div id="mapa" style="height: 500px;width: 100%;"></div>  
+        <div class="col-md-6 mb-3 mx-auto" align="center">
+
+        <button class="btn btn-primary  mx-auto" type="submit" align="center">Inscribirse en la Carrera</button>
+         </div>
+        </form>
+        </div>
+  </div>
+ </div>
+

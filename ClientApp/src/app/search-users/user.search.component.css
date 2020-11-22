@@ -1,0 +1,96 @@
+.card {
+    border: none;
+    min-height: 280px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    max-width: 350px;
+    min-width: 350px;
+}
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(189, 226, 255, 0.5);
+    margin: 10px 10px;
+    padding: 10px 10px;
+    max-width: 350px;
+    min-width: 350px;
+}
+
+.card.hovercard .cardheader {
+    background-color: #bde2ff;
+    background-size: cover;
+    height: 50px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+    display: flex;
+    justify-content: left;
+
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    border-radius: 30%;
+    border: 5px solid rgba(255,255,255,0.5);
+
+}
+
+.card.hovercard .avatar .name{
+    padding: 15px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+    
+}
+
+.card.hovercard .info .desc {
+    
+    font-size: 17px;
+    line-height: 20px;
+    color: black;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.card.hovercard .buttons {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.buttons {
+    max-width: 120px;
+    min-width: 120px;
+    margin: auto;
+    margin-bottom: 12px;
+    border-radius: 9%;
+}
+
+.buttonred {
+    max-width: 120px;
+    min-width: 120px;
+    margin: auto;
+    margin-bottom: 12px;
+    border-radius: 9%;
+    background-color: #c21b1b;
+}

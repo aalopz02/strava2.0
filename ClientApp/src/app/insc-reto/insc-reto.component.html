@@ -1,0 +1,31 @@
+<app-navbar-user></app-navbar-user>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="    background: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_102283878_407122.jpg)" class="page-holder bg-cover">
+  <div class="container-sm pt-3">
+    <div class="jumbotron">
+      <h1 class="display-5" align="center">Inscribirse en un Reto</h1>
+      
+      <form [formGroup]="inscretoForm" (submit)="onSubmit()" >
+        <div class="col-md-6 mb-3 mx-auto"  >
+        <div>
+          <label for="nombrereto">Nombre Reto </label>
+              <select formControlName="nombrereto" id="nombrereto">
+                  <option *ngFor="let reto of nombrereto; let i = index" [value]="nombrereto[i].nombrereto">
+                      {{nombrereto[i].nombrereto}}
+                  </option>
+               </select>
+      </div>
+    
+    </div>
+        <div class="col-md-6 mb-3 mx-auto"  >
+          <label class="labelfont" for="name">Nombre Usuario:</label>
+          <input type="text" class="form-control"  formControlName="nombreusuario" id="nombreusuario" #name required>
+        </div>
+    
+           <div class="col-md-6 mb-3 mx-auto" align="center">
+           <button class="btn btn-primary  mx-auto" type="submit" align="center">Inscribirse en el reto</button>
+          </div>
+        </form>
+        </div>
+  </div>
+ </div>

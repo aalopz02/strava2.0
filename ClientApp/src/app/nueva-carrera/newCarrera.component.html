@@ -1,0 +1,73 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<h1>Cree la carrera</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nombrecarrera">Nombre Carrera</label>
+        <input type="text" formControlName="nombrecarrera" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombrecarrera.errors }"  />
+        <div *ngIf="submitted && f.nombrecarrera.errors" class="invalid-feedback">
+            <div *ngIf="f.nombrecarrera.errors.required">Se necesita nombre de la carrera</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="costo">Costo por participar</label>
+        <input type="text" formControlName="costo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.costo.errors }" />
+        <div *ngIf="submitted && f.costo.errors" class="invalid-feedback">
+            <div *ngIf="f.costo.errors.required">El costo es requerido</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cuentapago">Cuenta para pagos</label>
+        <input type="text" formControlName="cuentapago" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cuentapago.errors }" />
+        <div *ngIf="submitted && f.cuentapago.errors" class="invalid-feedback">
+            <div *ngIf="f.cuentapago.errors.required">La cuenta es requerida</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="privacidad">Privacidad</label>
+        <input type="text" formControlName="privacidad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.privacidad.errors }" />
+        <div *ngIf="submitted && f.privacidad.errors" class="invalid-feedback">
+            <div *ngIf="f.privacidad.errors.required">La privacidad es requerida</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="fecha">Fecha del evento</label>
+        <input type="date" class="form-control" formControlName="fecha" id="fecha" required>
+    </div>
+    <div>
+        <label for="tipoactividad">Tipo de actividad </label>
+            <select formControlName="tipoactividad" id="tipoactividad">
+                <option *ngFor="let actividad of tipoactividad; let i = index" [value]="tipoactividad[i].idact">
+                    {{tipoactividad[i].nombre}}
+                </option>
+             </select>
+    </div>
+    <div>
+        <label for="patrocinadorId">Patrocinadores </label>
+            <select formControlName="patrocinadorId" id="patrocinadorId">
+                <option *ngFor="let patrocinador of patrocinadores; let i = index" [value]="patrocinadores[i].idpat">
+                    {{patrocinadores[i].nombre}}
+                </option>
+             </select>
+    </div>
+    <div>
+        <label for="categoriaId">Categorías </label>
+            <select formControlName="categoriaId" id="categoriaId">
+                <option *ngFor="let categoria of categorias; let i = index" [value]="categorias[i].idcat">
+                    {{categorias[i].nombre}}
+                </option>
+             </select>
+    </div>
+    <div>
+        <span>Archivo gpx de la ruta: </span>
+        <span>{{file ? file.name : 'Arrastre el archivo' }}</span>
+        <input class="file-input" formControlName="ruta" type="file" (change)="fileChanged($event)">
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-primary">Crear Evento</button>
+    </div>
+    
+</form>
+
+

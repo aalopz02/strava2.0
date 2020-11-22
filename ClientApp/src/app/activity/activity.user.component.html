@@ -32,12 +32,8 @@
              </select>
     </div>
     <div class="form-group">
-        <label for="costo">Tipo</label>
-        <select formControlName="tipo" id="tipo">
-            <option>Reto </option>
-            <option>Carrera </option>
-            <option>Actividad regular </option>
-         </select>
+        <label for="tipo">Tipo</label>
+        <input numeric type="text" formControlName="tipo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tipo.errors }" />
     </div>
     <div>
         <span>Archivo gpx de la ruta: </span>
